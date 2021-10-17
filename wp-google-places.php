@@ -19,7 +19,7 @@ spl_autoload_register(
         $dirs = ['src', 'tests'];
         foreach ($dirs as $dir) {
             $directory = __DIR__ . DIRECTORY_SEPARATOR . $dir . DIRECTORY_SEPARATOR;
-            $file = $directory . $className;
+            $file = $directory . $className . '.php';
             if (file_exists($file)) {
                 include_once $file;
             }
