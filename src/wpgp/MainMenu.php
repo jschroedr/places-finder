@@ -122,7 +122,19 @@ namespace wpgp
         {
             return self::OPTIONS_GROUP_NAME . '[' . $labelFor . ']';
         }
-
+        /**
+         * Get a menu option by name
+         * 
+         * @param $fieldName string
+         * 
+         * @return string
+         */
+        public static function getOptionValue(string $fieldName) : string
+        {
+            $options = get_option(self::OPTIONS_GROUP_NAME);
+            return (string) ($options[$fieldName] ?? '');
+        }
+        
         /**
          * Displays the API Key Field in the Main Options Menu
          * 

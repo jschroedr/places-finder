@@ -54,11 +54,15 @@ namespace wpgp
          */
         public static function add() : void
         {
+            $screen = MainMenu::getOptionValue(MainMenu::POST_TYPE_FIELD_NAME);
+            if (empty($screen) === true) {
+                $screen = 'post';
+            }
             add_meta_box(
                 'wpgp-location-meta-box',
                 'WP Google Places - Location',
                 [self::class, 'render'],
-                'post',
+                $screen,
                 'side',
                 'high'
             );
