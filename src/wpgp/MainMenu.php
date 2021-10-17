@@ -106,8 +106,9 @@ namespace wpgp
          */
         public static function headerCallback(array $args) : void 
         {
+            $message = 'Configure the behavior of WP Google Places.';
             ?>
-                <h2 id="<?php echo $args['id'];?>">Settings</h2>
+                <p id="<?php echo $args['id'];?>"><?php echo $message;?></p>
             <?php
         }
 
