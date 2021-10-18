@@ -48,6 +48,8 @@ namespace wpgp
         const SETTINGS_SECTION_NAME = 'wpgp_settings';
         const API_KEY_FIELD_NAME = 'wpgp_api_key';
         const POST_TYPE_FIELD_NAME = 'wpgp_single_location_post_type';
+        const IV_FIELD_NAME = 'wpgp_iv';
+        const KEY_FIELD_NAME = 'wpgp_key';
         const OPTIONS_GROUP_NAME = 'wpgp_options';
 
         /**
@@ -136,6 +138,23 @@ namespace wpgp
             return (string) ($options[$fieldName] ?? '');
         }
         
+        /**
+         * Set a menu option by name
+         * 
+         * @param $fieldName string
+         * @param $value     string
+         * 
+         * @return void
+         */
+        public static function setOptionValue(
+            string $fieldName, 
+            string $value
+        ) : void {
+            $options = get_option(self::OPTIONS_GROUP_NAME);
+            $options[$fieldName] = $value;
+            update_option(self::OPTIONS_GROUP_NAME, $options, false);
+        }
+
         /**
          * Displays the API Key Field in the Main Options Menu
          * 
