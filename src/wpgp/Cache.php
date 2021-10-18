@@ -33,57 +33,53 @@ namespace wpgp
          * Get $data from the file indexed by $key in the Cache,
          * so long as the file is within MAX_FILE_AGE old
          * 
-         * @param $key string
+         * @param $key       string
+         * @param $partition string
          * 
          * @return string
          */
-        public static function get(string $key) : string
+        public static function get(string $key, string $partition = null) : string
         {
-            $key = self::_sanitizeKey($key);
-            $dir = self::_getDir();
+            self::_checkCacheDirectory($partition);
 
-            // scan the cache files
-            $files = scandir($dir);
-            foreach ($files as $file) {
-                // upon a match on $key - check file age before
-                // returning contents
-                if (strpos($file, $key) !== false) {
-                    $filename = $dir . DIRECTORY_SEPARATOR . $file;
-                    if (self::_checkFileAge($file) === true) {
-                        // get and decrypt the file contents
-                        $contents = file_get_contents($filename);
-                        return Encryption::decrypt($contents);
-                    } else {
-                        // remove the stale file
-                        unlink($filename);
-                    }
-                }
+            $filename = self::_getFilePath($key, $partition);
+            if (is_file($filename) === false) {
+                // file does not exist
+                return '';
+            } elseif (self::_checkFileAge($filename) === false) {
+                // remove the stale file
+                unlink($filename);
+                return '';
+            } else {
+                // file exists and is fresh enough to use
+                $contents = file_get_contents($filename);
+                return Encryption::decrypt($contents);
             }
-            // return empty if not found
-            return '';
         }
 
         /**
          * Set the $data into a file indexed by $key in the Cache
          * 
-         * @param $key  string
-         * @param $data string
+         * @param $key       string
+         * @param $data      string
+         * @param $partition string the directory to partition the data by
          * 
          * @return void
          */
-        public static function set(string $key, string $data) : void
-        {           
-            $key = self::_sanitizeKey($key);
-            $dir = self::_getDir();
-            
+        public static function set(
+            string $key, 
+            string $data, 
+            string $partition = null
+        ) : void {           
+           
             // check that the cache is initialized
-            self::_checkCacheDirectory();
+            self::_checkCacheDirectory($partition);
             
             // encrypt data 
             $data = Encryption::encrypt($data);
 
             // set encrypted data in folder
-            $filename = $dir . DIRECTORY_SEPARATOR . self::_getFileName($key);
+            $filename = self::_getFilePath($key, $partition);
             $result = file_put_contents($filename, $data);
             if ($result === false) {
                 error_log('wpgp\\Cache: Could not save file');
@@ -92,57 +88,37 @@ namespace wpgp
         }
 
         /**
+         * Get the full file path for a given $key and $partition (subdirectory)
+         * 
+         * @param $key       string
+         * @param $partition string
+         * 
+         * @return string
+         */
+        private static function _getFilePath(
+            string $key, 
+            string $partition = null
+        ) : string {
+            $dir = self::_getDir();
+            if (is_null($partition) === false) {
+                $dir = $dir . DIRECTORY_SEPARATOR . $partition;
+            }
+            return $dir . DIRECTORY_SEPARATOR . "$key.txt";
+        }
+
+        /**
          * Calculates whether the age of the cached item is acceptable for use
          * 
-         * @param $file string
+         * @param $filename string
          * 
          * @return bool
          */
-        private static function _checkFileAge(string $file) : bool
+        private static function _checkFileAge(string $filename) : bool
         {
-            $fileTime = self::_getFileTime($file);
+            $fileTime = filemtime($filename);
             $currentTime = time();
             $diff = $currentTime - $fileTime;
             return $diff <= self::MAX_FILE_AGE;
-        }
-
-        const SEPARATOR = '~';
-
-        /**
-         * Remove the separator from the key to ensure accurate storage and retrieval
-         * 
-         * @param $key string
-         * 
-         * @return string
-         */
-        private static function _sanitizeKey(string $key) : string
-        {
-            return str_replace(self::SEPARATOR, '', $key);
-        }
-
-        /**
-         * Parse the time from the file name as an int (utc timestamp)
-         * 
-         * @param $file string the filename (no directory) to parse the time from
-         * 
-         * @return int
-         */
-        private static function _getFileTime(string $file) : int
-        {
-            return (int)explode(self::SEPARATOR, $file)[1];
-        }
-
-        /**
-         * Generate a time-bound filename using the given $key
-         * 
-         * @param $key string the name of the file from the caller
-         * 
-         * @return string
-         */
-        private static function _getFileName(string $key) : string
-        {
-            $time = time();
-            return "$key~$time.txt";
         }
 
         const DIR_NAME = 'wpgp';
@@ -162,13 +138,23 @@ namespace wpgp
         /**
          * Check and create the cache directory in wp-uploads
          * 
+         * @param $partition string
+         * 
          * @return void
          */
-        private static function _checkCacheDirectory() : void
+        private static function _checkCacheDirectory(string $partition = null) : void
         {
+            // check and create the cache directory
             $dir = self::_getDir();
             if (is_dir($dir) === false) {
                 mkdir($dir);
+            }
+            // check and create the partition
+            if (is_null($partition) === false) {
+                $subDir = $dir . DIRECTORY_SEPARATOR . $partition;
+                if (is_dir($subDir) === false) {
+                    mkdir($subDir);
+                }
             }
         }
 

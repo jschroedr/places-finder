@@ -72,6 +72,19 @@ namespace wpgp
 
         const NONCE_KEY = 'wpgp-location-nonce';
         
+        public static function getMetaItem(int $postId, string $key) : string
+        {
+            return (string)get_post_meta($postId, $key, true);
+        }
+
+        public static function setMetaItem(
+            int $postId, 
+            string $key, 
+            string $value
+        ) : void {
+            update_post_meta($postId, $key, $value);
+        }
+
         /**
          * Shows the MetaBox on the pre-configred post type
          * 
