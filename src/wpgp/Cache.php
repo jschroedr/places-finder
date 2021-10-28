@@ -75,7 +75,8 @@ namespace wpgp
             // check that the cache is initialized
             self::_checkCacheDirectory($partition);
             
-            // encrypt data 
+            // encode and encrypt data 
+            $data = utf8_encode($data);
             $data = Encryption::encrypt($data);
 
             // set encrypted data in folder
@@ -131,6 +132,10 @@ namespace wpgp
         private static function _getDir() : string
         {
             $dir = wp_get_upload_dir()['basedir']; 
+            if (is_dir($dir) === false) {
+                print($dir);
+                mkdir($dir);
+            }
             $dir .= DIRECTORY_SEPARATOR . self::DIR_NAME;
             return $dir;
         }
@@ -147,12 +152,14 @@ namespace wpgp
             // check and create the cache directory
             $dir = self::_getDir();
             if (is_dir($dir) === false) {
+                print($dir);
                 mkdir($dir);
             }
             // check and create the partition
             if (is_null($partition) === false) {
                 $subDir = $dir . DIRECTORY_SEPARATOR . $partition;
                 if (is_dir($subDir) === false) {
+                    print($subDir);
                     mkdir($subDir);
                 }
             }

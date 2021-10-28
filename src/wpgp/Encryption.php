@@ -26,7 +26,7 @@ namespace wpgp
     class Encryption 
     {
 
-        const ALGORITHM = 'aes-256-gcm';
+        const ALGORITHM = 'aes-256-cbc';
         const DATA_LEN = 50;
 
         /**
@@ -66,11 +66,24 @@ namespace wpgp
         {
             $iv = MainMenu::getOptionValue(MainMenu::IV_FIELD_NAME);
             if (empty($iv) === true) {
+                print("\niv empty");
                 $cipherLength = openssl_cipher_iv_length(self::ALGORITHM);
-                $bytes = openssl_random_pseudo_bytes($cipherLength);
-                MainMenu::setOptionValue(MainMenu::IV_FIELD_NAME, $bytes);
+                $cipher = self::_getCipher($cipherLength);
+                MainMenu::setOptionValue(MainMenu::IV_FIELD_NAME, $cipher);
             }
-            return $bytes;
+            return $iv;
+        }
+
+        private static function _getCipher(int $length) : string
+        {
+            $count = 0;
+            $chars = [];
+            while ($count < $length) {
+                $id = uniqid();
+                $chars[] = $id[rand(0, strlen($id) - 1)];
+                $count ++;
+            }
+            return implode('', $chars);
         }
 
         /**

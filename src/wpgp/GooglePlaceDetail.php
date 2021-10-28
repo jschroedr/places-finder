@@ -30,22 +30,30 @@ namespace wpgp
             'vicinity'
         ];
         
-        public static function getCached(string $placeId) : string 
+        public static function getCached(string $placeId) : array 
         {
-            return Cache::get(self::CACHE_KEY, $placeId);
+            $response = Cache::get(self::CACHE_KEY, $placeId);
+            if (empty($response) === true) {
+                return [];
+            }
+            return json_decode($response, true);
         }
 
-        public static function get(string $placeId) : string
+        public static function get(string $placeId) : array
         {
             // TODO: get and set api key for request
             $params = [
                 'place_id' => $placeId,
                 'fields' => implode(',', self::BASIC_FIELDS),
-                'language' => self::LANGUAGE
+                'language' => self::LANGUAGE,
+                'key' => MainMenu::getOptionValue(
+                    MainMenu::SERVER_API_KEY_FIELD_NAME
+                )
             ];
             $params = http_build_query($params);
+            $url = self::URL . '?' . $params;
             $response = wp_remote_get(
-                self::URL . $params,
+                $url,
                 [
                     'method' => 'GET'
                 ]
@@ -55,9 +63,20 @@ namespace wpgp
                     'wpgp\\GooglePlaceDetail: Request failed ' . 
                     $response->get_error_message()
                 );
-                return '';
+                return [];
             }
-            return wp_remote_retrieve_body($response);
+            $response = wp_remote_retrieve_body($response);
+            $response = json_decode($response, true);
+            if (isset($response['error_message'])) {
+                error_log(
+                    'wpgp\\GooglePlaceDetail: Request failed ' . 
+                    $response['error_message']
+                );
+                return [];
+            }
+            $response = $response['result'];
+            Cache::set(self::CACHE_KEY, json_encode($response), $placeId);;
+            return $response;
         }
 
     }

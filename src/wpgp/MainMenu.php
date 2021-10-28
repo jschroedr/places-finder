@@ -46,7 +46,7 @@ namespace wpgp
 
         const PAGE_NAME = 'wpgp';
         const SETTINGS_SECTION_NAME = 'wpgp_settings';
-        const API_KEY_FIELD_NAME = 'wpgp_api_key';
+        const SERVER_API_KEY_FIELD_NAME = 'wpgp_server_api_key';
         const POST_TYPE_FIELD_NAME = 'wpgp_single_location_post_type';
         const IV_FIELD_NAME = 'wpgp_iv';
         const KEY_FIELD_NAME = 'wpgp_key';
@@ -86,13 +86,13 @@ namespace wpgp
             );
 
             add_settings_field(
-                self::API_KEY_FIELD_NAME,
-                __('Api Key', 'wpgp'),
+                self::SERVER_API_KEY_FIELD_NAME,
+                __('Server Api Key', 'wpgp'),
                 [self::class, 'apiKeyCallback'],
                 'wpgp',
                 self::SETTINGS_SECTION_NAME,
                 array(
-                    'label_for'         => self::API_KEY_FIELD_NAME,
+                    'label_for'         => self::SERVER_API_KEY_FIELD_NAME,
                     'class'             => 'wpgp_row',
                     'wpgp_custom_data'  => 'custom',
                 )
