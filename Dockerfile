@@ -12,12 +12,10 @@ RUN echo "xdebug.remote_enable=1" >> /usr/local/etc/php/conf.d/xdebug.ini && \
     echo "xdebug.idekey=${XDEBUG_IDEKEY}" >> /usr/local/etc/php/conf.d/xdebug.ini
 
 # install git for development purposes
-RUN apt-get update && apt-get install git
+RUN apt-get update && apt-get install git -y
 
 # install composer
-RUN apt install wget unzip
-RUN wget -O composer-setup.php https://getcomposer.org/installer
-RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+RUN apt install wget unzip -y
+RUN wget -O composer-setup.php https://getcomposer.org/installer && php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
-RUN "$(php-config --extension-dir)/xdebug.so" >> /usr/local/etc/php/php.ini-production
-RUN "$(php-config --extension-dir)/xdebug.so" >> /usr/local/etc/php/php.ini-development
+RUN chmod  +w /usr/local/etc/php/ && echo "$(php-config --extension-dir)/xdebug.so" >> /usr/local/etc/php/php.ini-production && echo "$(php-config --extension-dir)/xdebug.so" >> /usr/local/etc/php/php.ini-development
