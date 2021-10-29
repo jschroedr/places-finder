@@ -2,6 +2,9 @@
 
 namespace wpgp
 {
+
+    use Configuration;
+
     class GooglePlaceDetail
     {
 
@@ -39,19 +42,8 @@ namespace wpgp
             return json_decode($response, true);
         }
 
-        public static function get(string $placeId) : array
+        private static function productionGet(string $url) : array
         {
-            // TODO: get and set api key for request
-            $params = [
-                'place_id' => $placeId,
-                'fields' => implode(',', self::BASIC_FIELDS),
-                'language' => self::LANGUAGE,
-                'key' => MainMenu::getOptionValue(
-                    MainMenu::SERVER_API_KEY_FIELD_NAME
-                )
-            ];
-            $params = http_build_query($params);
-            $url = self::URL . '?' . $params;
             $response = wp_remote_get(
                 $url,
                 [
@@ -66,7 +58,38 @@ namespace wpgp
                 return [];
             }
             $response = wp_remote_retrieve_body($response);
-            $response = json_decode($response, true);
+            return json_decode($response, true);
+        }
+
+        private static function testGet(string $url, array $mockConfig) : array
+        {
+            $status = $mockConfig['status'] ?? '200';
+            $filename = "google-place-detail-$status.json";
+            $response = MockHelper::getResponseContent('google-place-detail-200.json');
+            return json_decode($response, true);
+        }
+
+        public static function get(string $placeId, array $mockConfig = []) : array
+        {
+            $params = [
+                'place_id' => $placeId,
+                'fields' => implode(',', self::BASIC_FIELDS),
+                'language' => self::LANGUAGE,
+                'key' => MainMenu::getOptionValue(
+                    MainMenu::SERVER_API_KEY_FIELD_NAME
+                )
+            ];
+            $params = http_build_query($params);
+            $url = self::URL . '?' . $params;
+
+            if (Configuration::isTest() === false) {
+                $response = self::productionGet($url);
+            } else {
+                $response = self::mockGet($url, $mockConfig);
+            }
+            if (empty($response) === true) {
+                return $response;
+            }
             if (isset($response['error_message'])) {
                 error_log(
                     'wpgp\\GooglePlaceDetail: Request failed ' . 

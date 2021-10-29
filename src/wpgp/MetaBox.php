@@ -13,6 +13,7 @@
 namespace wpgp
 {
     use \WP_Post;
+    use \add_action;
 
     /**
      * Manages rendering of the Place ID meta box, and saving 

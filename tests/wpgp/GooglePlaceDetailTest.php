@@ -9,17 +9,12 @@ namespace wpgp
     {
 
         public function testGet() : void
-        {
-
-            // TODO: SET THIS UP AS THE PHPUNIT BOOTSTRAP
-            include_once dirname(__DIR__, 1) . '/bootstrap.php';
-            
-            // TODO: TRANSITION TO MOCK
+        {            
+            $apiKey = uniqid();  // some randomized mock value
             MainMenu::setOptionValue(MainMenu::SERVER_API_KEY_FIELD_NAME, $apiKey);
             $response = GooglePlaceDetail::get($placeId);
             print_r($response);
         }
-
 
         public function testGetCached() : void
         {
