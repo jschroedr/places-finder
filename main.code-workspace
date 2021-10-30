@@ -1,5 +1,8 @@
 {
 	"settings": {
+		"phpunit.args": [
+			"--configuration phpunit.xml"
+		],
 		"folders": [
 			{
 				"path": "."
