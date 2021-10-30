@@ -12,7 +12,7 @@ RUN echo "xdebug.remote_enable=1" >> /usr/local/etc/php/conf.d/xdebug.ini && \
     echo "xdebug.idekey=${XDEBUG_IDEKEY}" >> /usr/local/etc/php/conf.d/xdebug.ini
 
 # install development binaries
-RUN apt-get update && apt-get install git php-codesniffer -y
+RUN apt-get update && apt-get install git -y
 
 # install composer
 RUN apt install wget unzip -y

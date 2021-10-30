@@ -27,7 +27,8 @@
 		"ikappas.phpcs",
 		"ms-vscode.test-adapter-converter",
 		"hbenl.vscode-test-explorer",
-		"devsense.phptools-vscode"
+		"devsense.phptools-vscode",
+		"bmewburn.vscode-intelephense-client"
 	]
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

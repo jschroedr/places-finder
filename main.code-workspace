@@ -3,6 +3,9 @@
 		"phpunit.args": [
 			"--configuration phpunit.xml"
 		],
+		"php.problems.exclude": {
+			"/": true,
+		},
 		"folders": [
 			{
 				"path": "."
