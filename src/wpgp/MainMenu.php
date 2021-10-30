@@ -16,8 +16,6 @@
 namespace wpgp 
 {
 
-    use \add_action;
-
     /**
      * Manages main options menu display and data collection
      * 

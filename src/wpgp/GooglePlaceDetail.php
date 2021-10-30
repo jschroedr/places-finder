@@ -3,7 +3,7 @@
 namespace wpgp
 {
 
-    use Configuration;
+    use wpgp\Configuration;
 
     class GooglePlaceDetail
     {
@@ -42,7 +42,7 @@ namespace wpgp
             return json_decode($response, true);
         }
 
-        private static function productionGet(string $url) : array
+        private static function getProduction(string $url) : array
         {
             $response = wp_remote_get(
                 $url,
@@ -61,11 +61,11 @@ namespace wpgp
             return json_decode($response, true);
         }
 
-        private static function testGet(string $url, array $mockConfig) : array
+        private static function getMock(array $mockConfig) : array
         {
             $status = $mockConfig['status'] ?? '200';
             $filename = "google-place-detail-$status.json";
-            $response = MockHelper::getResponseContent('google-place-detail-200.json');
+            $response = MockHelper::getResponseContent($filename);
             return json_decode($response, true);
         }
 
@@ -83,9 +83,9 @@ namespace wpgp
             $url = self::URL . '?' . $params;
 
             if (Configuration::isTest() === false) {
-                $response = self::productionGet($url);
+                $response = self::getProduction($url);
             } else {
-                $response = self::mockGet($url, $mockConfig);
+                $response = self::getMock($mockConfig);
             }
             if (empty($response) === true) {
                 return $response;

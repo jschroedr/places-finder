@@ -8,7 +8,7 @@ namespace wpgp
 
         public static function getResponseContent(string $filename) : string
         {
-            $filepath = './data/' . $filename;
+            $filepath = __DIR__ . '/data/' . $filename;
             return file_get_contents($filepath);
         }
 

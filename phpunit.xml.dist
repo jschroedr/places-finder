@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit bootstrap = "tests/bootstrap.php"
+    backupGlobals               = "false"
+    backupStaticAttributes      = "false"
+    colors                      = "true"
+    convertErrorsToExceptions   = "true"
+    convertNoticesToExceptions  = "true"
+    convertWarningsToExceptions = "true"
+    processIsolation            = "false"
+    stopOnFailure               = "false">
+
+    <testsuites>
+        <testsuite name="Project Test Suite">
+            <directory>tests/wpgp</directory>
+        </testsuite>
+    </testsuites>
+
+    <php>
+        <env name="WPGP_TESTING" value="1"/>
+        <env name="WPGP_TEST_PLACE_ID" value="ChIJN1t_tDeuEmsRUsoyG83frY4"/>
+        <env name="XDEBUG_CONFIG" value="idekey=VSCODE"
+    </php>
+
+</phpunit>

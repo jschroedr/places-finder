@@ -1,5 +1,4 @@
 <?php
-
-include_once dirname(__DIR__, 4) . '/wp-load.php';
-
-include_once dirname(__DIR__, 1) . '/wp-google-places.php';
+// load Wordpress
+// if using docker-compose, this will always be the path in the workspace
+require_once '/var/www/html/wp-load.php';

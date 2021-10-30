@@ -13,7 +13,6 @@
 
 spl_autoload_register(
     function (string $className) {
-        print($className);
         if (DIRECTORY_SEPARATOR !== '\\') {
             $className = str_replace('\\', '/', $className);
         }
