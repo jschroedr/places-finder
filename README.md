@@ -17,3 +17,5 @@ xdebug.default_enable = 1
 xdebug.remote_enable = 1
 xdebug.idekey=VSCODE
 ```
+
+TODO: need to get the workspace to open in wp-content/plugins directory.

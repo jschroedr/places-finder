@@ -8,23 +8,18 @@
     convertNoticesToExceptions  = "true"
     convertWarningsToExceptions = "true"
     processIsolation            = "false"
-    stopOnFailure               = "false"
-    syntaxCheck                 = "false">
+    stopOnFailure               = "false">
 
     <testsuites>
         <testsuite name="Project Test Suite">
-            <directory>tests</directory>
+            <directory>tests/wpgp</directory>
         </testsuite>
     </testsuites>
 
-    <filter>
-        <whitelist>
-            <directory suffix=".php">src/</directory>
-        </whitelist>
-    </filter>
-
     <php>
         <env name="WPGP_TESTING" value="1"/>
+        <env name="WPGP_TEST_PLACE_ID" value="ChIJN1t_tDeuEmsRUsoyG83frY4"/>
+        <env name="XDEBUG_CONFIG" value="idekey=VSCODE"/>
     </php>
 
 </phpunit>

@@ -18,4 +18,4 @@ RUN apt-get update && apt-get install git -y
 RUN apt install wget unzip -y
 RUN wget -O composer-setup.php https://getcomposer.org/installer && php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
-RUN chmod  +w /usr/local/etc/php/ && echo "zend_extension=$(php-config --extension-dir)/xdebug.so" >> /usr/local/etc/php/php.ini-production && echo "zend_extension=$(php-config --extension-dir)/xdebug.so" >> /usr/local/etc/php/php.ini-development
+RUN chmod  +w /usr/local/etc/php/ && cat ./tests/conf.init >> /usr/local/etc/php/php.ini

@@ -1,11 +1,5 @@
 {
 	"settings": {
-		"phpunit.args": [
-			"--configuration ./phpunit.xml.dist"
-		],
-		"phpunit.envVars": {
-			"XDEBUG_CONFIG": "idekey=VSCODE",
-		},
 		"folders": [
 			{
 				"path": "."
@@ -85,7 +79,9 @@
 			"zlib",
 			"wordpress",
 			"phpdbg"
-		]
+		],
+		"debug.allowBreakpointsEverywhere": true,
+		"debug.console.closeOnEnd": true
 	},
 	"folders": [
 		{

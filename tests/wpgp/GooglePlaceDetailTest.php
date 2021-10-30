@@ -11,9 +11,7 @@ namespace wpgp
         private function checkResultContent(array $response) : void
         {
             // we should get a result that contains google place detail content
-            print_r($result);
-            $result = $response['result'] ?? [];
-            $this->assertNotEmpty($result);
+            $this->assertNotEmpty($response);
         }
 
         public function testGet() : void
@@ -24,7 +22,7 @@ namespace wpgp
             MainMenu::setOptionValue(MainMenu::SERVER_API_KEY_FIELD_NAME, $apiKey);
             $response = GooglePlaceDetail::get($placeId);
             $this->checkResultContent($response);
-            $placeId = $response['result']['place_id'] ?? '';
+            $placeId = $response['place_id'] ?? '';
             $this->assertNotEmpty($placeId);
             $this->assertIsString($placeId);
         }
