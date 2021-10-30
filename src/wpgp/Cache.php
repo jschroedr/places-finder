@@ -40,8 +40,6 @@ namespace wpgp
          */
         public static function get(string $key, string $partition = null) : string
         {
-            self::_checkCacheDirectory($partition);
-
             $filename = self::_getFilePath($key, $partition);
             if (is_file($filename) === false) {
                 // file does not exist

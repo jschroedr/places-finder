@@ -48,7 +48,7 @@ namespace wpgp
         public function testGet() : void
         {
             // some randomized mock values for place id and api key
-            $placeId = $_ENV['WPGP_TEST_PLACE_ID'];
+            $placeId = getTestPlaceId();
             $apiKey = uniqid();
             MainMenu::setOptionValue(MainMenu::SERVER_API_KEY_FIELD_NAME, $apiKey);
             $response = GooglePlaceDetail::get($placeId);
@@ -67,7 +67,7 @@ namespace wpgp
         {
             // ensure there is cached content available
             // and the mock place id context is set
-            $placeId = $_ENV['WPGP_TEST_PLACE_ID'];
+            $placeId = getTestPlaceId();
             $this->testGet();  // ensure there is cached content available
             $response = GooglePlaceDetail::getCached($placeId);
             $this->_checkResultContent($response);

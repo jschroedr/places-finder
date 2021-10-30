@@ -18,8 +18,17 @@
 require_once '/var/www/html/wp-load.php';
 
 
+use wpgp\MetaBox;
+
+
+function getTestPlaceId() : string 
+{
+    return $_ENV['WPGP_TEST_PLACE_ID'];
+}
+
+
 // load the same posts
-function getAndSetPosts() : array
+function getAndSetTestPosts() : array
 {
     $posts = json_decode(file_get_contents(__DIR__ . '/data/posts.json'), true);
     foreach ($posts as $post) {
@@ -42,6 +51,23 @@ function getAndSetPosts() : array
                 ]
             );
         }
+        if ($post['use_place_data']) {
+            MetaBox::setMetaItem($post['id'], MetaBox::PLACE_ID_KEY, $post['place_id']);
+        }
     }
     return $posts;
+}
+
+
+function getTestPlaceIdPost() : array
+{
+    $placeId = getTestPlaceId();
+    $posts = getAndSetTestPosts();
+    foreach ($posts as $post) {
+        if ($post['place_id'] === $placeId) {
+            return $post;
+        }
+    }
+    error_log('Could not find test post, check $_ENV');
+    return [];
 }

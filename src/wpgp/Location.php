@@ -7,6 +7,7 @@ namespace wpgp
     {
         public int $postId;
         
+        public bool $initialized;
         public string $name;
         public string $phone;
         public array $openingHours;
@@ -22,7 +23,7 @@ namespace wpgp
         
         public float $rating;
         public array $reviews;
-        public array $reviewCount;
+        public int $reviewCount;
         
         public string $mapsUrl;
         public float $lat;
@@ -33,6 +34,8 @@ namespace wpgp
         
         private string $_placeId;
         
+        const INVALID_COORD = -181.0;
+
         public function __construct(int $postId = null)
         {
             if (is_null($postId) === true) {
@@ -43,26 +46,8 @@ namespace wpgp
                 $this->postId, 
                 MetaBox::PLACE_ID_KEY
             );
-            $this->name = null;
-            $this->phone = null;
-            $this->openingHours = null;
-            $this->weekdayText = null;
-            $this->formattedAddress = null;
-            $this->streetNumber = null;
-            $this->locality = null;
-            $this->adminArea2 = null;
-            $this->adminArea1 = null;
-            $this->country = null;
-            $this->postalCode = null;
-            $this->rating = null;
-            $this->reviews = null;
-            $this->reviewCount = null;
-            $this->mapsUrl = null;
-            $this->lat = null;
-            $this->lng = null;
-            $this->utcOffset = null;
-            $this->vicinity = null;
-            $this->website = null;
+            
+            $this->initialized = false;
             $this->initialize();
         }
 
@@ -78,9 +63,10 @@ namespace wpgp
                 $data = GooglePlaceDetail::get($this->_placeId);
             }
             $this->parse($data);
+            $this->initialized = true;
         }
 
-        private function parse(string $data) : void
+        private function parse(array $data) : void
         {
             // if data is still empty, do nothing
             if (empty($data) === true) {
@@ -88,24 +74,11 @@ namespace wpgp
                 return;
             }
 
-            $data = json_decode($data, true);
-            if (is_null($data) === true) {
-                // TODO: log response
-                error_log('wpgp\\Location: Could not parse GooglePlaceDetail.');
-                return;
-            }
-            if ($data['status'] !== 'OK') {
-                // TODO: log response
-                error_log('wpgp\\Location: Return from GooglePlaceDetail not OK');
-                return;
-            }
-            $data = $data['result'];
-
             // parse the google place detail data into attributes
             $this->name = $data['name'] ?? '';
             $this->phone = $data['formatted_phone_number'] ?? '';
-            $this->openingHours = $data['opening_hours'] ?? '';
-            $this->weekdayText = $data['weekday_text'] ?? '';
+            $this->openingHours = $data['opening_hours'] ?? [];
+            $this->weekdayText = $data['weekday_text'] ?? [];
             
             $this->formattedAddress = $data['formatted_address'] ?? '';
             foreach ($data['address_components'] as $component) {
@@ -135,13 +108,13 @@ namespace wpgp
                 }
             }
 
-            $this->rating = $data['rating'] ?? '';
-            $this->reviews = $data['reviews'] ?? '';
-            $this->reviewCount = $data['user_ratings_total'] ?? '';
+            $this->rating = $data['rating'] ?? 0.0;
+            $this->reviews = $data['reviews'] ?? [];
+            $this->reviewCount = $data['user_ratings_total'] ?? 0;
 
             $this->mapsUrl = $data['url'] ?? '';
-            $this->lat = $data['geometry']['location']['lat'] ?? '';
-            $this->lng = $data['geometry']['location']['lng'] ?? '';
+            $this->lat = $data['geometry']['location']['lat'] ?? self::INVALID_COORD;
+            $this->lng = $data['geometry']['location']['lng'] ?? self::INVALID_COORD;
             $this->utcOffset = $data['utc_offset'] ?? '';
             $this->vicinity = $data['vicinity'] ?? '';
             $this->website = $data['website'] ?? '';

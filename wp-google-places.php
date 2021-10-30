@@ -22,6 +22,7 @@ spl_autoload_register(
             $file = $directory . $className . '.php';
             if (file_exists($file)) {
                 include_once $file;
+                break;
             }
         }
     }

@@ -93,9 +93,15 @@ namespace wpgp
             if (isset($response['error_message'])) {
                 error_log(
                     'wpgp\\GooglePlaceDetail: Request failed ' . 
-                    $response['error_message']
+                    json_encode($response)
                 );
                 return [];
+            }
+            if ($response['status'] !== 'OK') {
+                error_log(
+                    'wpgp\\GooglePlaceDetail: Problem getting place details ' . 
+                    json_encode($response)
+                );
             }
             $response = $response['result'];
             Cache::set(self::CACHE_KEY, json_encode($response), $placeId);;
