@@ -5,7 +5,7 @@ namespace wpgp
 
     use wpgp\Configuration;
 
-    class GooglePlaceDetail
+    class GooglePlaceDetail extends GoogleApi
     {
 
         const CACHE_KEY = 'google-place-detail';
@@ -42,25 +42,6 @@ namespace wpgp
             return json_decode($response, true);
         }
 
-        private static function getProduction(string $url) : array
-        {
-            $response = wp_remote_get(
-                $url,
-                [
-                    'method' => 'GET'
-                ]
-            );
-            if (is_wp_error($response)) {
-                error_log(
-                    'wpgp\\GooglePlaceDetail: Request failed ' . 
-                    $response->get_error_message()
-                );
-                return [];
-            }
-            $response = wp_remote_retrieve_body($response);
-            return json_decode($response, true);
-        }
-
         private static function getMock(array $mockConfig) : array
         {
             $status = $mockConfig['status'] ?? '200';
@@ -75,9 +56,7 @@ namespace wpgp
                 'place_id' => $placeId,
                 'fields' => implode(',', self::BASIC_FIELDS),
                 'language' => self::LANGUAGE,
-                'key' => MainMenu::getOptionValue(
-                    MainMenu::SERVER_API_KEY_FIELD_NAME
-                )
+                'key' => self::getApiKey()
             ];
             $params = http_build_query($params);
             $url = self::URL . '?' . $params;
@@ -87,25 +66,12 @@ namespace wpgp
             } else {
                 $response = self::getMock($mockConfig);
             }
-            if (empty($response) === true) {
-                return $response;
-            }
-            if (isset($response['error_message'])) {
-                error_log(
-                    'wpgp\\GooglePlaceDetail: Request failed ' . 
-                    json_encode($response)
-                );
+            if (self::checkApiResponse($response) === false) {
                 return [];
             }
-            if ($response['status'] !== 'OK') {
-                error_log(
-                    'wpgp\\GooglePlaceDetail: Problem getting place details ' . 
-                    json_encode($response)
-                );
-            }
-            $response = $response['result'];
-            Cache::set(self::CACHE_KEY, json_encode($response), $placeId);;
-            return $response;
+            // use the short-term file cache for performance purposes
+            // and return the extracted result
+            return self::setAndReturn($response, $placeId, self::CACHE_KEY);
         }
 
     }
