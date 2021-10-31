@@ -1,0 +1,225 @@
+{
+    "html_attributions": [],
+    "result": {
+        "address_components": [
+            {
+                "long_name": "Sydney",
+                "short_name": "Sydney",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "City of Sydney",
+                "short_name": "City of Sydney",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "New South Wales",
+                "short_name": "NSW",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Australia",
+                "short_name": "AU",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "2000",
+                "short_name": "2000",
+                "types": [
+                    "postal_code"
+                ]
+            }
+        ],
+        "adr_address": "St Marys Rd, <span class=\"locality\">Sydney</span> <span class=\"region\">NSW</span> <span class=\"postal-code\">2000</span>, <span class=\"country-name\">Australia</span>",
+        "business_status": "OPERATIONAL",
+        "formatted_address": "St Marys Rd, Sydney NSW 2000, Australia",
+        "formatted_phone_number": "(02) 9220 0400",
+        "geometry": {
+            "location": {
+                "lat": -33.8711905,
+                "lng": 151.2133254
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -33.8696845,
+                    "lng": 151.2146858802915
+                },
+                "southwest": {
+                    "lat": -33.8727321,
+                    "lng": 151.2119879197085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/worship_general-71.png",
+        "icon_background_color": "#7B9EB0",
+        "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/worship_christian_pinlet",
+        "international_phone_number": "+61 2 9220 0400",
+        "name": "St Mary's Cathedral",
+        "photos": [
+            {
+                "height": 1080,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/117997116334899972101\">Riclufer</a>"
+                ],
+                "photo_reference": "Aap_uEDgytdn98OOFCrMVmoUQP-KuhsZkFH36yoxKLBgZ5qZ-2vKmfasNHUQnCrrKRg81GSppzjN2idk5TxOcDuLmwVoPhhAbfAdAlf1YQgQnyPpaeVRY-AJvXLzDxEGrzkXiXMPLxbX-l3LjWGjH48jABSB9T6Q9AooFayOhNwx44lOMzml",
+                "width": 1920
+            },
+            {
+                "height": 1202,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/106932754230439997344\">Edward Zia</a>"
+                ],
+                "photo_reference": "Aap_uEB3rMKwTFC9AxZ6N1yMxN-fm-brEO96lQuoIp3t-mqGi01Sp8hVSb91v71CMXYFqiE2jCWDnRqwAZeIj-Ys2E2vnOiEuoafM_3QAPNpB757kXlZ0Tj8TguDnv7gK8AKcqdcasmLC-tW-EIHqUd6mrB5ilEDh-nmApeDI7SziFhiHPjo",
+                "width": 2048
+            },
+            {
+                "height": 4224,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/118238018881758228989\">Dear Denden</a>"
+                ],
+                "photo_reference": "Aap_uEBq6KJ0Lpe716AjKpyXM5VFl17qSrP8YVcjnBpSPBBJ06cVQki_01qSLeEp2aq6XUZanmQHHnry6FkgM9dnGJyq3qHalfadh4kmfzIrrfnuSl0uGj80HIjcaQteaDFz0Iph0uPqvCRYhrda8H0Iai2Xvj34S7Lk1ptTeJGjtxiKqqgO",
+                "width": 3136
+            },
+            {
+                "height": 4032,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/100110806580546237625\">Kim Raymond</a>"
+                ],
+                "photo_reference": "Aap_uED7R9nWYKdc7RaYTyhXjOFVcxRoxYNLccvV_9IUIZUQVxTk9Ejtyfn2GQHXN2Ef6HOIueXBwsavFhlbGQnDOvyFdd54E58qRMVbZ8VoImYt5TZ25Swr5zlqbjmzpSXFY8Z3bhMlvDvbs7nQHRpCcsopqZ3CzCEgfRyZx-vWZb2UlANm",
+                "width": 2268
+            },
+            {
+                "height": 4032,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/114203209775184872203\">Marzie Ghorbani</a>"
+                ],
+                "photo_reference": "Aap_uEDiGRrEoU7vDtWV4m4Z04w-Hc7Y0RQvN0RK09gNJ29OciKZzjyHOhxNYgf_Ij9ZSFBoO4Vc9cN_hNMF9mt2CbP4PQdR4Q2_4ciV63uxjHBiHZeiqIbva_tzVsyJ6tHuvZ5thwC_pTTWjyCPHlXOootBOXeO3vHcdXnK60Sh83tDv7GH",
+                "width": 3024
+            },
+            {
+                "height": 4032,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/106038704994485804441\">Kota M</a>"
+                ],
+                "photo_reference": "Aap_uECBe_ihNQrD45gSLTeD-u-dIISPhgvEy9Flks75-P8kM5XURe1Z1iEc13bgHekkYIOEKD3C5T9tkw9KO7ZYO0WR9YhkI8zkqtlFdzu2O0I8yopdqvARjbAV0dtSxHHll5S_GdLPuO9POY5sXpNkhc0F9CRl5qf_oJZEGS8sQ77K6fCn",
+                "width": 3024
+            },
+            {
+                "height": 3080,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/114408106152639126503\">Jb Lee</a>"
+                ],
+                "photo_reference": "Aap_uEAhXqy523XlqNyl_GI6t--W4KpEnVy0ca5G9RbYHEScsGz-zJKIr7PtVCC0sEs60PCohVSYVMYb3t_RCiMy7eX6wGNmy8J7nuehq9MKmCp0TrHqk4S8Ds_wr-K15cCYvpa392MCh4DvG6NegXJvCmiXWekilyTIS9DDmuHLI17LpnnM",
+                "width": 5472
+            },
+            {
+                "height": 2304,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/100481177868248181761\">Viktor Berezin Chess</a>"
+                ],
+                "photo_reference": "Aap_uEAcQQxxNo5M6hI9EmQPYgbM858mU_Se0l39j_NrqUYSk51I8DdUgLgc2F5p2jZaNd0lMcXS2Xo26rpklYUYxsixLTTOsz6cq1bihan4WAvpG5r9ElAEezrnEO79_spQFn5HQMgvVi5MIUA5M0Kj_UXIOi5PPLnsTi2XPUlODWMMqYje",
+                "width": 1853
+            },
+            {
+                "height": 4032,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/106516613193611005372\">창밖의세상</a>"
+                ],
+                "photo_reference": "Aap_uEAo9xxgDbFXavx_1kWCB1oxMwQsusmxMzof9IFS2Gb4FoODw4c5ggN9zdgv0LhDoOYBSjRQ07pUMH8gM51LTx3xRc585rUTgel1swMzXXhg9nmjOBtynB6b3JzzeWOZXgiG8gFyRJcBNEVKuQXElSw6mfZHCxdZQDxKddjFS4CfD0Ui",
+                "width": 2268
+            },
+            {
+                "height": 2268,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/115074125285521322395\">陳岳基</a>"
+                ],
+                "photo_reference": "Aap_uEDkjUMFxKEjj7l_oMhiDir0derPjOXU_a7JW-1DuMgv4Sc51ZB78G8MkU3De9y5OfeSBsZgzdcGHMeTcjM1_1WdNdc-GFjED04RLdWgkgOwzCkbIvKJejowiTz02cFYrLss3vP3tDWVfkPpxPOxWCoUdaUa8NCjnGz6mwRTfR6NrTcB",
+                "width": 4032
+            }
+        ],
+        "place_id": "ChIJIfH_5hSuEmsR3jZ2qQd0ev4",
+        "plus_code": {
+            "compound_code": "46H7+G8 Sydney NSW, Australia",
+            "global_code": "4RRH46H7+G8"
+        },
+        "rating": 4.7,
+        "reference": "ChIJIfH_5hSuEmsR3jZ2qQd0ev4",
+        "reviews": [
+            {
+                "author_name": "Eric Zheng",
+                "author_url": "https://www.google.com/maps/contrib/109976857771834955820/reviews",
+                "language": "en",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a-/AOh14Gg3WzR7s6G6U0LXB04NaYxaq7fGYTNNmglEJIot=s128-c0x00000000-cc-rp-mo-ba4",
+                "rating": 5,
+                "relative_time_description": "2 months ago",
+                "text": "A great place. You can go inside and check it out and nearby is the Australian Museum. At night, the cathedral lights up, revealing spectacular shades of colours. Nearby is the Hyde Park and you can get to St Mary's Cathedral by train, alighting at Museum or bus. Definitely come at night.",
+                "time": 1628482362
+            },
+            {
+                "author_name": "FairValue Australia",
+                "author_url": "https://www.google.com/maps/contrib/115655733909405317799/reviews",
+                "language": "en",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a-/AOh14GhQxh_aOz0mtLhygMh1_tJ6g2eWnKYoTg97vb5JtjY=s128-c0x00000000-cc-rp-mo-ba6",
+                "rating": 5,
+                "relative_time_description": "11 months ago",
+                "text": "Incredible building well maintained. Great that people enjoy and are respectful.\nI have a brain injury but went to church here when my mum visited",
+                "time": 1605409136
+            },
+            {
+                "author_name": "Judy Holman",
+                "author_url": "https://www.google.com/maps/contrib/117023710144355400189/reviews",
+                "language": "en",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/AATXAJwTlMK9EE2K18fByOGCV4H4PHNAp7EhhNOLHWE=s128-c0x00000000-cc-rp-mo-ba2",
+                "rating": 5,
+                "relative_time_description": "3 months ago",
+                "text": "The extended service felt very traditional in many ways. The coffee hour was very welcoming for serving such a large congregation. I was able to catch a tour right after coffee hour where I learned a lot about the church and art within it. The only things about the service I would have liked to see changed were the less traditional lords prayer, post communion prayer, and that they did not use the traditional 4 bell for the moments after \"do this in remembrance of me.\" It seemed like an extended traditional service with less traditional rites being used.",
+                "time": 1626951844
+            },
+            {
+                "author_name": "Ravikiran Meesala",
+                "author_url": "https://www.google.com/maps/contrib/114170922028320702741/reviews",
+                "language": "en",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a-/AOh14GgWru_soRx-gIoXNW2arTo4vPXs6rdRhaovCawZSA=s128-c0x00000000-cc-rp-mo",
+                "rating": 5,
+                "relative_time_description": "a year ago",
+                "text": "Amazing place... Peaceful",
+                "time": 1599009448
+            },
+            {
+                "author_name": "Trần Minh Trí",
+                "author_url": "https://www.google.com/maps/contrib/100408313077691910769/reviews",
+                "language": "en",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a-/AOh14GjVpheqLO6bNS_w0WElZgmBVoNJHJQotYWx3Q7Aylg=s128-c0x00000000-cc-rp-mo",
+                "rating": 5,
+                "relative_time_description": "a year ago",
+                "text": "The Cathedral Church and Minor Basilica of the Immaculate Mother of God, Help of Christians (colloquially, St Mary's Cathedral) is the cathedral church of the Roman Catholic Archdiocese of Sydney and the seat of the Archbishop of Sydney, currently Anthony Fisher OP. It should not be confused with the nearby, later, Anglican St Andrew's Cathedral. It is dedicated to the \"Immaculate Mother of God, Help of Christians\", Patroness of Australia and holds the title and dignity of a minor basilica, bestowed upon it by Pope Pius XI on 4 August 1932.\n\nSt Mary's has the greatest length of any church in Australia (although it is neither the tallest nor largest overall). It is located on College Street near the eastern border of the Sydney central business district in the City of Sydney local government area of New South Wales, Australia. Despite the high-rise development of the central business district, the cathedral's imposing structure and twin spires make it a landmark from every direction. In 2008, St Mary's Cathedral became the focus of World Youth Day 2008 and was visited by Pope Benedict XVI who consecrated the new forward altar. The cathedral was designed by William Wardell and built from 1866 to 1928. It is also known as St Mary's Catholic Cathedral and Chapter House, Saint Mary's Cathedral and St Mary's Cathedral. The property was added to the New South Wales State Heritage Register on 3 September 2004.",
+                "time": 1600925479
+            }
+        ],
+        "types": [
+            "tourist_attraction",
+            "church",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+        ],
+        "url": "https://maps.google.com/?cid=18337096409049085662",
+        "user_ratings_total": 4556,
+        "utc_offset": 660,
+        "vicinity": "St Marys Rd, Sydney",
+        "website": "http://www.stmaryscathedral.org.au/"
+    },
+    "status": "OK"
+}

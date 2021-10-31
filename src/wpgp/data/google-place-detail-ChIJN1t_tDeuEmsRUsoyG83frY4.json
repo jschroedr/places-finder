@@ -1,0 +1,300 @@
+{
+    "html_attributions": [],
+    "result": {
+        "address_components": [
+            {
+                "long_name": "48",
+                "short_name": "48",
+                "types": [
+                    "street_number"
+                ]
+            },
+            {
+                "long_name": "Pirrama Road",
+                "short_name": "Pirrama Rd",
+                "types": [
+                    "route"
+                ]
+            },
+            {
+                "long_name": "Pyrmont",
+                "short_name": "Pyrmont",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "City of Sydney",
+                "short_name": "City of Sydney",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "New South Wales",
+                "short_name": "NSW",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Australia",
+                "short_name": "AU",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "2009",
+                "short_name": "2009",
+                "types": [
+                    "postal_code"
+                ]
+            }
+        ],
+        "adr_address": "<span class=\"street-address\">48 Pirrama Rd</span>, <span class=\"locality\">Pyrmont</span> <span class=\"region\">NSW</span> <span class=\"postal-code\">2009</span>, <span class=\"country-name\">Australia</span>",
+        "business_status": "OPERATIONAL",
+        "formatted_address": "48 Pirrama Rd, Pyrmont NSW 2009, Australia",
+        "formatted_phone_number": "(02) 9374 4000",
+        "geometry": {
+            "location": {
+                "lat": -33.866489,
+                "lng": 151.1958561
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": -33.8655112697085,
+                    "lng": 151.1971156302915
+                },
+                "southwest": {
+                    "lat": -33.86820923029149,
+                    "lng": 151.1944176697085
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+        "icon_background_color": "#7B9EB0",
+        "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+        "international_phone_number": "+61 2 9374 4000",
+        "name": "Google Workplace 6",
+        "opening_hours": {
+            "open_now": false,
+            "periods": [
+                {
+                    "close": {
+                        "day": 1,
+                        "time": "1700"
+                    },
+                    "open": {
+                        "day": 1,
+                        "time": "0900"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 2,
+                        "time": "1700"
+                    },
+                    "open": {
+                        "day": 2,
+                        "time": "0900"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 3,
+                        "time": "1700"
+                    },
+                    "open": {
+                        "day": 3,
+                        "time": "0900"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 4,
+                        "time": "1700"
+                    },
+                    "open": {
+                        "day": 4,
+                        "time": "0900"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 5,
+                        "time": "1700"
+                    },
+                    "open": {
+                        "day": 5,
+                        "time": "0900"
+                    }
+                }
+            ],
+            "weekday_text": [
+                "Monday: 9:00 AM – 5:00 PM",
+                "Tuesday: 9:00 AM – 5:00 PM",
+                "Wednesday: 9:00 AM – 5:00 PM",
+                "Thursday: 9:00 AM – 5:00 PM",
+                "Friday: 9:00 AM – 5:00 PM",
+                "Saturday: Closed",
+                "Sunday: Closed"
+            ]
+        },
+        "photos": [
+            {
+                "height": 3024,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/105067373811767106297\">Shaun Craig</a>"
+                ],
+                "photo_reference": "Aap_uEDwgzlKICqoIwrVtln4cMHbm7o3EFvIF3s3bvVE0xmehkkPje8qKH8bJTCc-tY-hr2yyR-VVu-Wv95ur2-gJjtd3lodgJQcIEFSrjIaxhzsi-nwjJbxqRyJuWhebpgC5XQRUtr_0kqeAWQmJ8noxNkfOyKlIloXjMDBNbRvsMy2vqzV",
+                "width": 4032
+            },
+            {
+                "height": 3264,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/102493344958625549078\">Heyang Li</a>"
+                ],
+                "photo_reference": "Aap_uEC4GEkVDjzi7OV9IuUlpWnYx4FFxpFztUrhzhYsIY04BuZjtiEbN6BUwiH7a6-CZ5zv-yfwfm_Eo4tPGAKsxfvp-0OoqhlgzGHraxukB7ocyXUyHXiI_ldyHInKFFYX86n_ixvIjIGSUNTV3BncIJioTHYG05PyTc4w98ovAHwMl14G",
+                "width": 4912
+            },
+            {
+                "height": 1836,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/116807455538142476628\">Anand Ema</a>"
+                ],
+                "photo_reference": "Aap_uEBXLRsLscZ-l2LAjU5k4RXz4MAowdio4lEvF-qMoBHbtrlWdCRG7Y3L8tjYOp3wWkfOjKcFJSCQDEObyBereoAjFsXXiGdlOAWqdP6T3MM4gHEU6ejE3Yp2VkCCj-pM-4Gsj9-NGWyf5bvNAWjEJ3Gxe028OT4zq_PfZuS9lcBoZRco",
+                "width": 3264
+            },
+            {
+                "height": 3024,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/115886271727815775491\">Anthony Huynh</a>"
+                ],
+                "photo_reference": "Aap_uECVCPBCV6SLHGGTAVe8fZeg6QWZNbZe1uSRMVNfhTAVm0UQ8EalC0gzHq6cttXgv6tgJ5yzlaldBKK-aVWGjB5R4dHmEwe2vu8AUezKDLCCONlSstLyHsVSBoGhJxBpXLynhMicV5D9IXCXJU1GkpzpMC3PrRYGe5i9lbolnSqFCP1I",
+                "width": 4032
+            },
+            {
+                "height": 3024,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/102939237947063969663\">Jasen Baker</a>"
+                ],
+                "photo_reference": "Aap_uEAdEH6lcv7pAtqYGFRQXj3YMrzTiIRzqD4sv4n_0J_kdJm6L1CojC2gqBoTJa4PAr_stcTeAp3eC2ujNuQo5cDaR-F8zwuCUc-gaqXF3SDwym4140pQVXGS_UFJlPnFSoCepxg6UVfPaOI1D0T5NaJn1iU6XF2Oo-OhWlykUU7otJIY",
+                "width": 4032
+            },
+            {
+                "height": 3024,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/100678816592586275978\">Jeremy Hsiao</a>"
+                ],
+                "photo_reference": "Aap_uEC2WsezSt6Co7ptHcHsRB0Vsu_FGxiSqI28bWq845SLQPW7UtMUCz5gqmzfuJFLnOi9MhosWaBiGsZeG0Iq2HGPqqLqBZqDTSazo7hfH85HEwIc94PUBTXZO08DTDQtHTh0fzKQUPo0YHD6cJJIOJbaJjB0pBBOw6mMxWlOwrB0hSPB",
+                "width": 4032
+            },
+            {
+                "height": 4032,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/100678816592586275978\">Jeremy Hsiao</a>"
+                ],
+                "photo_reference": "Aap_uECM9b1DjfL2OupngYVarfYQ-ZpiL_VeBU4wHsTrUeChheR2hXgfRwHVck3C2d9gGHbFAjQqMMoUqU6EsAqG5QGJRVLt4NGvl9tSziFFojBWLZ4d2vv5sDxK7ShWQh2Hix19UPVvLR91uIRuyUbpgRf4Ms0R5jt2-kRKSoMqY1CdA2mJ",
+                "width": 3024
+            },
+            {
+                "height": 1515,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/112343109286948028063\">Andrew W</a>"
+                ],
+                "photo_reference": "Aap_uEBaom4-g9DIJNPawXnuz2vVwdEfo8fdH__CinuKvG-1f4AeAPdZW2NPP-2OFX8Trw_Idi6QH6DaXef51CbiYhNxuYbiZmwXKH7dxiM9NYkDbtlmS0e6TeJhTrRgGYyRSbVM4RHNhbm0Oo_S1Jnjk67rvvSgGYwWyTnDOnnDmOIO7j5Y",
+                "width": 2048
+            },
+            {
+                "height": 3024,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/100678816592586275978\">Jeremy Hsiao</a>"
+                ],
+                "photo_reference": "Aap_uEAwN-uPv9yO06ygbKm4R8fRM8mGshxOIaSXtXhFx75RnlUmVG5onjArRa4re6haIQs8PxvVoYpGNt_nMv7bX7IcOP4_fukG-8UwOmQEwTLVbUgoMMnCOaXidiPW9EpWnuqZc7upgDGssUItV6kan78cVhBemqS86CgDJ5EpmLdhH9nL",
+                "width": 4032
+            },
+            {
+                "height": 2432,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/114858570056204926877\">Geoff Wong</a>"
+                ],
+                "photo_reference": "Aap_uEAbt5ZsboGE1nrrmO8urIdGlVmOAWW6HfhpaKmFNegp6PJd0M1XOMfc_90_6L9zbEmM4Fy2W2i_Ygt07GOCulHTP3dILE9XP2HG9aQorb7GEC-OlktoLVKyshYhAsHewCQm4c_d2vk5V84CFZrG7pSNvT-YMHlqhsr1XMMceOz1xtjy",
+                "width": 3286
+            }
+        ],
+        "place_id": "ChIJN1t_tDeuEmsRUsoyG83frY4",
+        "plus_code": {
+            "compound_code": "45MW+C8 Pyrmont NSW, Australia",
+            "global_code": "4RRH45MW+C8"
+        },
+        "rating": 4.1,
+        "reference": "ChIJN1t_tDeuEmsRUsoyG83frY4",
+        "reviews": [
+            {
+                "author_name": "Mark Smith (Mark ZZZ Smith)",
+                "author_url": "https://www.google.com/maps/contrib/109015045837507592030/reviews",
+                "language": "en",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a-/AOh14Gi-thk-CV41Ymw9Udvr0O5WL8Iguf9HYAKKyEWDxw=s128-c0x00000000-cc-rp-mo",
+                "rating": 5,
+                "relative_time_description": "a year ago",
+                "text": "Great place to visit, cafeteria great. Also has a good toilet.",
+                "time": 1589072760
+            },
+            {
+                "author_name": "Rob Wheels",
+                "author_url": "https://www.google.com/maps/contrib/115362806466530416255/reviews",
+                "language": "en",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/AATXAJyiPZvo8WGU7EbGcsMuh_LbI5iPy83z2NBzAQxC=s128-c0x00000000-cc-rp-mo",
+                "rating": 1,
+                "relative_time_description": "a month ago",
+                "text": "4 months of trying to get a Street View updated by the Google my Business team with no luck so I thought I'd try giving the Sydney \"Head Office\" a call....what a waste of time, no-one ever answers. What a disgraceful organisation this is - you've done months of irreparable harm to by business and make it impossible for me to escalate the matter to have it sorted. Given there are plenty of other Australian businesses having similar issues with you, maybe it's time for a Class Action!",
+                "time": 1630988029
+            },
+            {
+                "author_name": "Husuni Hamza",
+                "author_url": "https://www.google.com/maps/contrib/102167316656574288776/reviews",
+                "language": "en",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/AATXAJwRkyvoSlgd06ahkF9XI9D39o6Zc_Oycm5EKuRg=s128-c0x00000000-cc-rp-mo",
+                "rating": 5,
+                "relative_time_description": "4 weeks ago",
+                "text": "Nice site. Please I want to work with you. Am Alhassan Haruna, from Ghana. Contact me +233553851616",
+                "time": 1633197305
+            },
+            {
+                "author_name": "m",
+                "author_url": "https://www.google.com/maps/contrib/106135793666129691311/reviews",
+                "language": "en",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/AATXAJysZ8hSV0adFEd84kn_WMgd7ZQZt_vLXakYm9HX=s128-c0x00000000-cc-rp-mo",
+                "rating": 1,
+                "relative_time_description": "2 months ago",
+                "text": "Several years ago Google removed the monthly expenditure feature from the Google adwords account preventing business owners from adjusting their monthly budget. If you request Google to have it changed (say reduce it) they refuse to do so - surely this illegal ? They give you some BS spill about changing daily budget - BUT Google are so greedy it doesn't matter if your monthly budget is $200 or $2000 they will make sure you spend that amount each month. They have NO problem increasing the monthly budget but refuse to decease it. I have now lodged 7 requests to have this done which have been refused. ACCC here I come !",
+                "time": 1630360704
+            },
+            {
+                "author_name": "Travo Perera",
+                "author_url": "https://www.google.com/maps/contrib/110755899405934734444/reviews",
+                "language": "en",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/AATXAJxbWDhWtvRUF2emra5Z7SWaiEd3S5aZGfjEDEgu=s128-c0x00000000-cc-rp-mo",
+                "rating": 1,
+                "relative_time_description": "a week ago",
+                "text": "Someone posted a very bad review on my business page. I tried to contact google to remove the review. There is no number to contact an it goes to forum pages.  I tried to close my business listing from google and it would not allow either. With that review I lost my reputation and the business opportunities. See his email below",
+                "time": 1634677790
+            }
+        ],
+        "types": [
+            "point_of_interest",
+            "establishment"
+        ],
+        "url": "https://maps.google.com/?cid=10281119596374313554",
+        "user_ratings_total": 933,
+        "utc_offset": 660,
+        "vicinity": "48 Pirrama Road, Pyrmont",
+        "website": "http://google.com/"
+    },
+    "status": "OK"
+}

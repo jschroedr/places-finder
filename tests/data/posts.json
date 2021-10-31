@@ -3,27 +3,24 @@
         "id": 8000,
         "post_title": "Syndey Opera House",
         "post_status": "published",
-        "place_id": "ChIJN1t_tDeuEmsRUsoyG83frY4",
-        "use_place_data": true,
-        "lat": null,
-        "lng": null
+        "place_id": "ChIJN1t_tDeuEmsRUsoyG83frY4"
     },
     {
         "id": 8001,
         "post_title": "St Mary's Cathedral",
         "post_status": "published",
-        "place_id": "ChIJIfH_5hSuEmsR3jZ2qQd0ev4",
-        "use_place_data": false,
-        "lat": -33.8657218,
-        "lng": 151.1972161
+        "place_id": "ChIJIfH_5hSuEmsR3jZ2qQd0ev4"
     },
     {
         "id": 8002,
         "post_title": "Syndey Aquarium",
         "post_status": "published",
-        "place_id": "ChIJYV-J-ziuEmsRIMyoFaMedU4",
-        "use_place_data": false,
-        "lat": -33.8657218,
-        "lng": 151.1972161
+        "place_id": "ChIJYV-J-ziuEmsRIMyoFaMedU4"
+    },
+    {
+        "id": 8003,
+        "post_title": "Food Shack",
+        "post_status": "published",
+        "place_id": null
     }
 ]

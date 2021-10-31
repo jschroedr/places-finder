@@ -36,21 +36,23 @@ namespace wpgp
         {
             $className = self::class;
             if (empty($response) === true) {
-                return $response;
+                return false;
             }
             if (isset($response['error_message'])) {
                 error_log(
                     "$className: Request failed " . 
                     json_encode($response)
                 );
-                return [];
+                return false;
             }
             if ($response['status'] !== 'OK') {
                 error_log(
                     "$className: Problem getting place details " . 
                     json_encode($response)
                 );
+                return false;
             }
+            return true;
         }
 
         public static function setAndReturn(array $response, string $placeId = '', string $cacheKey = '') : array

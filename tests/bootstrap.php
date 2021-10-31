@@ -27,10 +27,15 @@ function getTestPlaceId() : string
 }
 
 
+function getTestPosts() : array
+{
+    return json_decode(file_get_contents(__DIR__ . '/data/posts.json'), true);
+}
+
 // load the same posts
 function getAndSetTestPosts() : array
 {
-    $posts = json_decode(file_get_contents(__DIR__ . '/data/posts.json'), true);
+    $posts = getTestPosts();
     foreach ($posts as $post) {
         $id = $post['id'];
         $wpPost = get_post($id);
@@ -51,8 +56,9 @@ function getAndSetTestPosts() : array
                 ]
             );
         }
-        if ($post['use_place_data']) {
-            MetaBox::setMetaItem($post['id'], MetaBox::PLACE_ID_KEY, $post['place_id']);
+        $placeId = $post['place_id'];
+        if (empty($placeId) === false) {
+            MetaBox::setMetaItem($post['id'], MetaBox::PLACE_ID_KEY, $placeId);
         }
     }
     return $posts;
@@ -61,13 +67,13 @@ function getAndSetTestPosts() : array
 
 function getTestPlaceIdPost() : array
 {
-    $placeId = getTestPlaceId();
-    $posts = getAndSetTestPosts();
-    foreach ($posts as $post) {
-        if ($post['place_id'] === $placeId) {
-            return $post;
-        }
-    }
-    error_log('Could not find test post, check $_ENV');
-    return [];
+    // the first post is an acceptable test candidate
+    return getTestPosts()[0];
+}
+
+
+function getTestPlaceIdPostEmpty() : array
+{
+    // the last post does not have a place id
+    return getTestPosts()[3];
 }

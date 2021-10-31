@@ -42,15 +42,14 @@ namespace wpgp
             return json_decode($response, true);
         }
 
-        private static function getMock(array $mockConfig) : array
+        private static function getMock(string $placeId) : array
         {
-            $status = $mockConfig['status'] ?? '200';
-            $filename = "google-place-detail-$status.json";
+            $filename = "google-place-detail-$placeId.json";
             $response = MockHelper::getResponseContent($filename);
             return json_decode($response, true);
         }
 
-        public static function get(string $placeId, array $mockConfig = []) : array
+        public static function get(string $placeId) : array
         {
             $params = [
                 'place_id' => $placeId,
@@ -64,7 +63,7 @@ namespace wpgp
             if (Configuration::isTest() === false) {
                 $response = self::getProduction($url);
             } else {
-                $response = self::getMock($mockConfig);
+                $response = self::getMock($placeId);
             }
             if (self::checkApiResponse($response) === false) {
                 return [];

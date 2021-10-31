@@ -7,30 +7,32 @@ namespace wpgp
     {
         public int $postId;
         
-        public bool $initialized;
-        public string $name;
-        public string $phone;
-        public array $openingHours;
-        public array $weekdayText;
+        public bool $initialized = false;
+        public string $name = '';
+        public string $phone = '';
+        public array $openingHours = [];
+        public array $weekdayText = [];
 
-        public string $formattedAddress;
-        public string $streetNumber;
-        public string $locality;
-        public string $adminArea2;
-        public string $adminArea1;
-        public string $country;
-        public string $postalCode;
+        public string $formattedAddress = '';
+        public string $streetNumber = '';
+        public string $locality = '';
+        public string $adminArea2 = '';
+        public string $adminArea1 = '';
+        public string $country = '';
+        public string $postalCode = '';
         
+        const INVALID_RATING = -1.0;
+        const INVALID_REVIEW_COUNT = -1;
         public float $rating;
-        public array $reviews;
+        public array $reviews = [];
         public int $reviewCount;
         
-        public string $mapsUrl;
+        public string $mapsUrl = '';
         public float $lat;
         public float $lng;
-        public int $utcOffset;
-        public string $vicinity;
-        public string $website;        
+        public int $utcOffset = -1;
+        public string $vicinity = '';
+        public string $website = '';  
         
         private string $_placeId;
         
@@ -38,6 +40,11 @@ namespace wpgp
 
         public function __construct(int $postId = null)
         {
+            $this->rating = $this::INVALID_RATING;
+            $this->reviewCount = $this::INVALID_REVIEW_COUNT;
+            $this->lat = $this::INVALID_COORD;
+            $this->lng = $this::INVALID_COORD;
+
             if (is_null($postId) === true) {
                 $this->postId = get_the_ID();
             }
@@ -46,7 +53,7 @@ namespace wpgp
                 $this->postId, 
                 MetaBox::PLACE_ID_KEY
             );
-            
+
             $this->initialized = false;
             $this->initialize();
         }

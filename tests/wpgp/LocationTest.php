@@ -31,6 +31,7 @@ namespace wpgp
          * Ensure a valid place id (and place details response)
          * results in valid initialization by post id.
          * 
+         * @return void
          */
         public function testInitializeValid() : void
         {
@@ -39,6 +40,21 @@ namespace wpgp
             $this->assertTrue($location->initialized);
             $this->assertNotEquals($location->lat, $location::INVALID_COORD);
             $this->assertNotEquals($location->lng, $location::INVALID_COORD);
+        }
+
+        /**
+         * Ensure a invalid place id (empty, for example)
+         * still results in valid initialization by post id.
+         * 
+         * @return void
+         */
+        public function testInitializeInvalid() : void
+        {
+            $post = getTestPlaceIdPostEmpty();
+            $location = new Location($post['id']);
+            $this->assertFalse($location->initialized);
+            $this->assertEquals($location->lat, $location::INVALID_COORD);
+            $this->assertEquals($location->lng, $location::INVALID_COORD);
         }
     }
 }
