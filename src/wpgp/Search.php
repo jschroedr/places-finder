@@ -49,7 +49,7 @@ namespace wpgp
                 return self::_standardResponse(false);
             }
 
-            return self::_parseLocationsByResponse($response, $locations);
+            return self::_parseLocationsByResponse($response);
         }
 
         /**
@@ -98,13 +98,19 @@ namespace wpgp
             return $locations;
         }
 
-        private static function _parseLocationsByResponse(array $response, array $locations) : SearchResult
+        private static function _getPrimaryType(array $type) : string
         {
-            $primaryType = $response['types'][0];
+            return $types[0];
+        }
+
+        private static function _parseLocationsByResponse(array $response) : SearchResult
+        {
+            $locations = self::_getLocations();
+            $primaryType = self::_getPrimaryType($response['types']);
             switch ($primaryType) {
             case 'locality':
             case 'premise':
-                $locations = self::_havesineSort($response, $locations);
+                $locations = self::_proximitySort($response, $locations);
             case 'administrative_area_level_1':
                 $locations = self::_regionFilter($response, $locations);
             case 'country':
@@ -117,5 +123,68 @@ namespace wpgp
                 return self::_standardResponse(false);
             }
         }
+
+        private function _proximitySort(array $response, array $locations) : SearchResult
+        {
+            $point = new Point(
+                $response['geometry']['location']['lat'],
+                $response['geometry']['location']['lng']
+            );
+            $set = new HaversineSet($point);
+            $set->order($locations);
+            // TODO: allow limiting of these types of results
+            $center = LocationsCenter::find($locations);
+            return new SearchResult(true, 'proximity', $response, $locations);
+        }
+
+        private function _regionFilter(
+            array $response,
+            array $locations
+        ) : SearchResult {
+            $type = 'administrative_area_level_1';
+            return self::_filterByType($type, 'adminArea1', $response, $locations);
+        }
+
+        private function _countryFilter(
+            array $response,
+            array $locations
+        ) : SearchResult {
+            $type = 'country';
+            return self::_filterByType($type, 'country', $response, $locations);
+        }
+
+        private function _filterByType(
+            string $type,
+            string $locationAttribute,
+            array $response,
+            array $locations
+        ) : SearchResult {
+            $target = self::_getAddressComponent(
+                $type, 
+                $response['address_components']
+            );
+            $filtered = [];
+            foreach ($locations as $location) {
+                if ($location->$locationAttribute === $target) {
+                    $filtered[] = $location;
+                }
+            }
+            $center = LocationsCenter::find($locations);
+            return new SearchResult(true, $type, $center, $locations);
+        }
+    
+        private function _getAddressComponent(
+            string $type,
+            array $components
+        ) : string {
+            foreach ($components as $component) {
+                $primaryType = self::_getPrimaryType($component['types']);
+                if ($primaryType === $type) {
+                    return $component['long_name'];
+                }
+            }
+            return '';
+        }
+    
     }
 }

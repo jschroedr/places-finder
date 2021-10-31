@@ -30,7 +30,10 @@ namespace wpgp
         public string $mapsUrl = '';
         public float $lat;
         public float $lng;
+        
         public Point $point;
+        public Distance $distance = 0.0;
+        
         public int $utcOffset = -1;
         public string $vicinity = '';
         public string $website = '';  
