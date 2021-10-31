@@ -30,6 +30,7 @@ namespace wpgp
         public string $mapsUrl = '';
         public float $lat;
         public float $lng;
+        public Point $point;
         public int $utcOffset = -1;
         public string $vicinity = '';
         public string $website = '';  
@@ -56,6 +57,7 @@ namespace wpgp
 
             $this->initialized = false;
             $this->initialize();
+            $this->point = new Point($this->lat, $this->lng);
         }
 
         private function initialize() : void
