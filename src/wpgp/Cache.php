@@ -27,11 +27,12 @@ namespace wpgp
     class Cache
     {
 
-        const MAX_FILE_AGE = 3600;
+        // choose a middle-of-the-road compression level
+        // since time is more valueable than raw space
+        const COMPRESSION_LEVEL = 5;
 
         /**
-         * Get $data from the file indexed by $key in the Cache,
-         * so long as the file is within MAX_FILE_AGE old
+         * Get $data from the file indexed by $key in the Cache
          * 
          * @param $key       string
          * @param $partition string
@@ -44,14 +45,10 @@ namespace wpgp
             if (is_file($filename) === false) {
                 // file does not exist
                 return '';
-            } elseif (self::_checkFileAge($filename) === false) {
-                // remove the stale file
-                unlink($filename);
-                return '';
             } else {
-                // file exists and is fresh enough to use
-                $contents = file_get_contents($filename);
-                return Encryption::decrypt($contents);
+                // file exists and ready for use
+                $data = file_get_contents($filename);
+                return gzinflate($data);
             }
         }
 
@@ -73,9 +70,9 @@ namespace wpgp
             // check that the cache is initialized
             self::_checkCacheDirectory($partition);
             
-            // encode and encrypt data 
+            // encode and compress
             $data = utf8_encode($data);
-            $data = Encryption::encrypt($data);
+            $data = gzdeflate($data, self::COMPRESSION_LEVEL);
 
             // set encrypted data in folder
             $filename = self::_getFilePath($key, $partition);
@@ -103,21 +100,6 @@ namespace wpgp
                 $dir = $dir . DIRECTORY_SEPARATOR . $partition;
             }
             return $dir . DIRECTORY_SEPARATOR . "$key.txt";
-        }
-
-        /**
-         * Calculates whether the age of the cached item is acceptable for use
-         * 
-         * @param $filename string
-         * 
-         * @return bool
-         */
-        private static function _checkFileAge(string $filename) : bool
-        {
-            $fileTime = filemtime($filename);
-            $currentTime = time();
-            $diff = $currentTime - $fileTime;
-            return $diff <= self::MAX_FILE_AGE;
         }
 
         const DIR_NAME = 'wpgp';
@@ -150,14 +132,12 @@ namespace wpgp
             // check and create the cache directory
             $dir = self::_getDir();
             if (is_dir($dir) === false) {
-                print($dir);
                 mkdir($dir);
             }
             // check and create the partition
             if (is_null($partition) === false) {
                 $subDir = $dir . DIRECTORY_SEPARATOR . $partition;
                 if (is_dir($subDir) === false) {
-                    print($subDir);
                     mkdir($subDir);
                 }
             }

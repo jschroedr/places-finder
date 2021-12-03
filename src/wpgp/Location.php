@@ -31,8 +31,8 @@ namespace wpgp
         public float $lat;
         public float $lng;
         
-        public Point $point;
-        public Distance $distance = 0.0;
+        public $point;
+        public $distance;
         
         public int $utcOffset = -1;
         public string $vicinity = '';
@@ -46,8 +46,9 @@ namespace wpgp
         {
             $this->rating = $this::INVALID_RATING;
             $this->reviewCount = $this::INVALID_REVIEW_COUNT;
-            $this->lat = $this::INVALID_COORD;
-            $this->lng = $this::INVALID_COORD;
+            $this->lat = self::INVALID_COORD;
+            $this->lng = self::INVALID_COORD;
+            $this->distance = null;
 
             if (is_null($postId) === true) {
                 $this->postId = get_the_ID();
@@ -60,7 +61,16 @@ namespace wpgp
 
             $this->initialized = false;
             $this->initialize();
-            $this->point = new Point($this->lat, $this->lng);
+            if ($this->lat == self::INVALID_COORD || $this->lng === self::INVALID_COORD) {
+                $this->point = null;
+            } else {
+                $this->point = new Point($this->lat, $this->lng);
+            }
+
+            // if a place id title is not available, use the post title
+            if (empty($this->name)) {
+                $this->name = get_the_title($this->postId);
+            }
         }
 
         private function initialize() : void

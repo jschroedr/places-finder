@@ -1,8 +1,16 @@
 <?php
 /**
- * Plugin Name: WP Google Places
+ * Plugin Name: Places Finder
  * 
  * PHP version 7.4
+ * 
+ * @wordpress-plugin
+ * Plugin Name: WP Self Storage
+ * Plugin URI: https://github.com/jschroedr/wp-self-storage
+ * Description: Integrates Wordpress with Self-Storage IMS
+ * Author: Jake Schroeder
+ * Author URI: https://github.com/jschroedr/
+ * Version 1.0.0
  * 
  * @category Admin
  * @package  Wpgp

@@ -19,7 +19,6 @@
     <php>
         <env name="WPGP_TESTING" value="1"/>
         <env name="WPGP_TEST_PLACE_ID" value="ChIJN1t_tDeuEmsRUsoyG83frY4"/>
-        <env name="XDEBUG_CONFIG" value="idekey=VSCODE"/>
     </php>
 
 </phpunit>

@@ -1,16 +1,11 @@
 {
+	"folders": [
+		{
+			"path": "."
+		}
+	],
 	"settings": {
-		"phpunit.args": [
-			"--configuration phpunit.xml"
-		],
-		"php.problems.exclude": {
-			"/": true,
-		},
-		"folders": [
-			{
-				"path": "."
-			}
-		],
+		"phpunit.args": [],
 		"intelephense.stubs": [
 			"apache",
 			"bcmath",
@@ -83,15 +78,7 @@
 			"Zend OPcache",
 			"zip",
 			"zlib",
-			"wordpress",
-			"phpdbg"
-		],
-		"debug.allowBreakpointsEverywhere": true,
-		"debug.console.closeOnEnd": true
-	},
-	"folders": [
-		{
-			"path": "."
-		}
-	]
-}
+			"wordpress"
+		]
+	}
+}	

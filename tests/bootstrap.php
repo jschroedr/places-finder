@@ -35,26 +35,35 @@ function getTestPosts() : array
 // load the same posts
 function getAndSetTestPosts() : array
 {
+    $users = get_users();
+    $user = $users[0];
     $posts = getTestPosts();
     foreach ($posts as $post) {
         $id = $post['id'];
         $wpPost = get_post($id);
         if (is_null($wpPost)) {
-            wp_insert_post(
+            $result = wp_insert_post(
                 [
                     'import_id' => $id,
                     'post_title' => $post['post_title'],
                     'post_status' => $post['post_status'],
-                ]
+                    'post_author' => $user->ID,
+                ],
+                true,
             );
         } else {
-            wp_update_post(
+            $result = wp_update_post(
                 [
-                    'ID' => $id,
+                    'ID' => $wpPost->ID,
                     'post_title' => $post['post_title'],
                     'post_status' => $post['post_status'],
-                ]
+                    'post_author' => $user->ID,
+                ],
+                true,
             );
+        }
+        if (is_wp_error($result)) {
+            print($result->get_error_message());
         }
         $placeId = $post['place_id'];
         if (empty($placeId) === false) {
@@ -68,12 +77,12 @@ function getAndSetTestPosts() : array
 function getTestPlaceIdPost() : array
 {
     // the first post is an acceptable test candidate
-    return getTestPosts()[0];
+    return getAndSetTestPosts()[0];
 }
 
 
 function getTestPlaceIdPostEmpty() : array
 {
     // the last post does not have a place id
-    return getTestPosts()[3];
+    return getAndSetTestPosts()[3];
 }

@@ -5,10 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Listen for Xdebug",
+            "name": "Listen for XDebug",
             "type": "php",
             "request": "launch",
-            "port": 9003
+            "port": 9003,
+            "log": false
         },
         {
             "name": "Launch currently open script",

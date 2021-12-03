@@ -1,24 +1,28 @@
 [
     {
-        "id": 8000,
+        "id": 9000,
+        "post_type": "page",
         "post_title": "Syndey Opera House",
         "post_status": "published",
         "place_id": "ChIJN1t_tDeuEmsRUsoyG83frY4"
     },
     {
-        "id": 8001,
+        "id": 9001,
+        "post_type": "page",
         "post_title": "St Mary's Cathedral",
         "post_status": "published",
         "place_id": "ChIJIfH_5hSuEmsR3jZ2qQd0ev4"
     },
     {
-        "id": 8002,
+        "id": 9002,
+        "post_type": "page",
         "post_title": "Syndey Aquarium",
         "post_status": "published",
         "place_id": "ChIJYV-J-ziuEmsRIMyoFaMedU4"
     },
     {
-        "id": 8003,
+        "id": 9003,
+        "post_type": "page",
         "post_title": "Food Shack",
         "post_status": "published",
         "place_id": null

@@ -16,13 +16,21 @@ namespace wpgp
         // sorts an array of Result objects by their distance to the geocode result
         public function order(array &$rows)
         {
-            usort($rows, [$this, 'sort']);
+            $result = usort($rows, [$this, 'sort']);
+            if ($result === false) {
+                error_log('wpgp\\HaversineSet: usort() failed.');
+            }
         }
 
         // sorts listings with distance first, by distance in km
         // sorts listings without distance second, by title
         private function sort(Location $a, Location $b) 
         {
+            // return 0 (same) if we are given two locations
+            // with the same post id
+            if ($a->postId === $b->postId) {
+                return 0;
+            }
             $aIsNull = is_null($a->point);
             $bIsNull = is_null($b->point);
             if ($aIsNull === true && $bIsNull === false) {
@@ -38,9 +46,15 @@ namespace wpgp
                 return -1;
             } elseif ($bIsNull === true && $aIsNull === true) {
                 // string comparison on alphabetic order
-                return strcmp($a->title, $b->title);
+                $result = strcmp($a->name, $b->name);
+                if ($result === 0) {
+                    return 0;
+                } elseif ($result > 0) {
+                    return 1;
+                } else {
+                    return -1;
+                }
             } 
-
 
             // don't calculate distances twice
             if (is_null($a->distance)) {

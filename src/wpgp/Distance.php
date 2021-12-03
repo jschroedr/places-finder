@@ -12,8 +12,9 @@ namespace wpgp
         public function __construct(float $kilometers)
         {
             $this->_kilometers = $kilometers;
+            
         }
-
+        
         public function getKilometers() : float
         {
             return $this->_kilometers;
