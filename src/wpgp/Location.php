@@ -38,12 +38,15 @@ namespace wpgp
         public string $vicinity = '';
         public string $website = '';  
         
+        public bool $cacheOnly;
+
         private string $_placeId;
         
         const INVALID_COORD = -181.0;
 
-        public function __construct(int $postId = null)
+        public function __construct(int $postId = null, bool $cacheOnly = false)
         {
+            $this->cacheOnly = $cacheOnly;
             $this->rating = $this::INVALID_RATING;
             $this->reviewCount = $this::INVALID_REVIEW_COUNT;
             $this->lat = self::INVALID_COORD;
@@ -79,22 +82,40 @@ namespace wpgp
             if (empty($this->_placeId) === true) {
                 return;
             }
-            // try to get cached data first
-            $data = GooglePlaceDetail::getCached($this->_placeId);
-            if (empty($data) === true) {
+            if ($this->cacheOnly === true) {
+                $data = GooglePlaceDetail::getCached($this->_placeId);
+                // only perform a full api request if the cache is missing
+                // or too old (outside the allowable file age from google)
+                if (empty($data) === true) {
+                    $data = GooglePlaceDetail::get($this->_placeId);
+                }   
+                $this->lat = $data['lat'] ?? self::INVALID_COORD;
+                $this->lng = $data['lng'] ?? self::INVALID_COORD;
+            } else {
                 $data = GooglePlaceDetail::get($this->_placeId);
+                $this->parse($data);
             }
-            $this->parse($data);
             $this->initialized = true;
         }
 
         private function parse(array $data) : void
         {
+
+            // extract the data from the api result
+            $data = $data['result'] ?? [];
+
             // if data is still empty, do nothing
             if (empty($data) === true) {
                 error_log('wpgp\\Location: Could not get GooglePlaceDetail.');
                 return;
             }
+
+            $this->lat = (
+                $data['geometry']['location']['lat'] ?? self::INVALID_COORD
+            );
+            $this->lng = (
+                $data['geometry']['location']['lng'] ?? self::INVALID_COORD
+            );
 
             // parse the google place detail data into attributes
             $this->name = $data['name'] ?? '';
@@ -135,8 +156,6 @@ namespace wpgp
             $this->reviewCount = $data['user_ratings_total'] ?? 0;
 
             $this->mapsUrl = $data['url'] ?? '';
-            $this->lat = $data['geometry']['location']['lat'] ?? self::INVALID_COORD;
-            $this->lng = $data['geometry']['location']['lng'] ?? self::INVALID_COORD;
             $this->utcOffset = $data['utc_offset'] ?? '';
             $this->vicinity = $data['vicinity'] ?? '';
             $this->website = $data['website'] ?? '';

@@ -29,14 +29,25 @@ namespace wpgp
 
         /**
          * Ensure a valid place id (and place details response)
-         * results in valid initialization by post id.
+         * results in valid (full) initialization by post id.
          * 
          * @return void
          */
         public function testInitializeValid() : void
         {
             $post = getTestPlaceIdPost();
-            $location = new Location($post['id']);
+            $location = new Location($post->ID);
+            $this->assertTrue($location->initialized);
+            $this->assertNotEquals($location->lat, $location::INVALID_COORD);
+            $this->assertNotEquals($location->lng, $location::INVALID_COORD);
+        }
+
+        public function testInitializeValidCache() : void
+        {
+            $post = getTestPlaceIdPost();
+            // only initialize partially using the cache
+            // for performance reasons
+            $location = new Location($post->ID, true);
             $this->assertTrue($location->initialized);
             $this->assertNotEquals($location->lat, $location::INVALID_COORD);
             $this->assertNotEquals($location->lng, $location::INVALID_COORD);
@@ -51,7 +62,7 @@ namespace wpgp
         public function testInitializeInvalid() : void
         {
             $post = getTestPlaceIdPostEmpty();
-            $location = new Location($post['id']);
+            $location = new Location($post->ID);
             $this->assertFalse($location->initialized);
             $this->assertEquals($location->lat, $location::INVALID_COORD);
             $this->assertEquals($location->lng, $location::INVALID_COORD);

@@ -68,9 +68,20 @@ namespace wpgp
             if (self::checkApiResponse($response) === false) {
                 return [];
             }
-            // use the short-term file cache for performance purposes
-            // and return the extracted result
-            return self::setAndReturn($response, $placeId, self::CACHE_KEY);
+            
+            // we may only cache the lat/lng and place id in accord with
+            // the maps service agreement as stated in the google places 
+            // service agreement (3.2.3(b))
+            // https://cloud.google.com/maps-platform/terms#3.-license.
+            // https://cloud.google.com/maps-platform/terms/maps-service-terms
+            $data = [
+                'lat' => $response['result']['geometry']['location']['lat'],
+                'lng' => $response['result']['geometry']['location']['lng'],
+                'place_id' => $response['result']['place_id']
+            ];
+            self::setCache($data, $placeId, self::CACHE_KEY);
+            
+            return $response;
         }
 
     }

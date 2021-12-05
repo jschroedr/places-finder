@@ -55,13 +55,13 @@ namespace wpgp
             return true;
         }
 
-        public static function setAndReturn(array $response, string $placeId = '', string $cacheKey = '') : array
-        {
-            $response = $response['result'];
-            if (empty($cacheKey) === false) {
-                Cache::set($cacheKey, json_encode($response), $placeId);
-            }
-            return $response;
+        public static function setCache(
+            array $response, 
+            string $placeId, 
+            string $cacheKey
+        ) : void {
+            Cache::set($cacheKey, json_encode($response), $placeId);
         }
+
     }
 }

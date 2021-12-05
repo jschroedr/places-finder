@@ -21,6 +21,9 @@ require_once '/var/www/html/wp-load.php';
 use wpgp\MetaBox;
 
 
+xdebug_connect_to_client();
+
+
 function getTestPlaceId() : string 
 {
     return $_ENV['WPGP_TEST_PLACE_ID'];
@@ -38,6 +41,7 @@ function getAndSetTestPosts() : array
     $users = get_users();
     $user = $users[0];
     $posts = getTestPosts();
+    $postObjects = [];
     foreach ($posts as $post) {
         $id = $post['id'];
         $wpPost = get_post($id);
@@ -65,23 +69,24 @@ function getAndSetTestPosts() : array
         if (is_wp_error($result)) {
             print($result->get_error_message());
         }
+        $postObjects[] = get_post($id);
         $placeId = $post['place_id'];
         if (empty($placeId) === false) {
             MetaBox::setMetaItem($post['id'], MetaBox::PLACE_ID_KEY, $placeId);
         }
     }
-    return $posts;
+    return $postObjects;
 }
 
 
-function getTestPlaceIdPost() : array
+function getTestPlaceIdPost() : object
 {
     // the first post is an acceptable test candidate
     return getAndSetTestPosts()[0];
 }
 
 
-function getTestPlaceIdPostEmpty() : array
+function getTestPlaceIdPostEmpty() : object
 {
     // the last post does not have a place id
     return getAndSetTestPosts()[3];

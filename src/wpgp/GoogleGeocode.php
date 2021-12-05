@@ -53,7 +53,6 @@ namespace wpgp
             $latlng = "$lat,$lng";
             $url = self::URL . '?' . "latlng=$latlng=&key=$key";
 
-            // TODO: MOCKING SUPPORT
             if (Configuration::isTest() === false) {
                 $response = self::getProduction($url);
             } else {

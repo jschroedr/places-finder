@@ -3,6 +3,20 @@
     "result": {
         "address_components": [
             {
+                "long_name": "1-5",
+                "short_name": "1-5",
+                "types": [
+                    "street_number"
+                ]
+            },
+            {
+                "long_name": "Wheat Road",
+                "short_name": "Wheat Rd",
+                "types": [
+                    "route"
+                ]
+            },
+            {
                 "long_name": "Sydney",
                 "short_name": "Sydney",
                 "types": [
@@ -42,184 +56,247 @@
                 ]
             }
         ],
-        "adr_address": "St Marys Rd, <span class=\"locality\">Sydney</span> <span class=\"region\">NSW</span> <span class=\"postal-code\">2000</span>, <span class=\"country-name\">Australia</span>",
+        "adr_address": "<span class=\"street-address\">1-5 Wheat Rd</span>, <span class=\"locality\">Sydney</span> <span class=\"region\">NSW</span> <span class=\"postal-code\">2000</span>, <span class=\"country-name\">Australia</span>",
         "business_status": "OPERATIONAL",
-        "formatted_address": "St Marys Rd, Sydney NSW 2000, Australia",
-        "formatted_phone_number": "(02) 9220 0400",
+        "formatted_address": "1-5 Wheat Rd, Sydney NSW 2000, Australia",
+        "formatted_phone_number": "1800 195 650",
         "geometry": {
             "location": {
-                "lat": -33.8711905,
-                "lng": 151.2133254
+                "lat": -33.8695997,
+                "lng": 151.2021381
             },
             "viewport": {
                 "northeast": {
-                    "lat": -33.8696845,
-                    "lng": 151.2146858802915
+                    "lat": -33.8678662197085,
+                    "lng": 151.2030538802915
                 },
                 "southwest": {
-                    "lat": -33.8727321,
-                    "lng": 151.2119879197085
+                    "lat": -33.8705641802915,
+                    "lng": 151.2003559197085
                 }
             }
         },
-        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/worship_general-71.png",
-        "icon_background_color": "#7B9EB0",
-        "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/worship_christian_pinlet",
-        "international_phone_number": "+61 2 9220 0400",
-        "name": "St Mary's Cathedral",
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+        "icon_background_color": "#13B5C7",
+        "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+        "international_phone_number": "+61 1800 195 650",
+        "name": "SEA LIFE Sydney Aquarium",
+        "opening_hours": {
+            "open_now": true,
+            "periods": [
+                {
+                    "close": {
+                        "day": 0,
+                        "time": "1500"
+                    },
+                    "open": {
+                        "day": 0,
+                        "time": "1000"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 1,
+                        "time": "1500"
+                    },
+                    "open": {
+                        "day": 1,
+                        "time": "1000"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 4,
+                        "time": "1500"
+                    },
+                    "open": {
+                        "day": 4,
+                        "time": "1000"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 5,
+                        "time": "1500"
+                    },
+                    "open": {
+                        "day": 5,
+                        "time": "1000"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 6,
+                        "time": "1500"
+                    },
+                    "open": {
+                        "day": 6,
+                        "time": "1000"
+                    }
+                }
+            ],
+            "weekday_text": [
+                "Monday: 10:00 AM – 3:00 PM",
+                "Tuesday: Closed",
+                "Wednesday: Closed",
+                "Thursday: 10:00 AM – 3:00 PM",
+                "Friday: 10:00 AM – 3:00 PM",
+                "Saturday: 10:00 AM – 3:00 PM",
+                "Sunday: 10:00 AM – 3:00 PM"
+            ]
+        },
         "photos": [
-            {
-                "height": 1080,
-                "html_attributions": [
-                    "<a href=\"https://maps.google.com/maps/contrib/117997116334899972101\">Riclufer</a>"
-                ],
-                "photo_reference": "Aap_uEDgytdn98OOFCrMVmoUQP-KuhsZkFH36yoxKLBgZ5qZ-2vKmfasNHUQnCrrKRg81GSppzjN2idk5TxOcDuLmwVoPhhAbfAdAlf1YQgQnyPpaeVRY-AJvXLzDxEGrzkXiXMPLxbX-l3LjWGjH48jABSB9T6Q9AooFayOhNwx44lOMzml",
-                "width": 1920
-            },
-            {
-                "height": 1202,
-                "html_attributions": [
-                    "<a href=\"https://maps.google.com/maps/contrib/106932754230439997344\">Edward Zia</a>"
-                ],
-                "photo_reference": "Aap_uEB3rMKwTFC9AxZ6N1yMxN-fm-brEO96lQuoIp3t-mqGi01Sp8hVSb91v71CMXYFqiE2jCWDnRqwAZeIj-Ys2E2vnOiEuoafM_3QAPNpB757kXlZ0Tj8TguDnv7gK8AKcqdcasmLC-tW-EIHqUd6mrB5ilEDh-nmApeDI7SziFhiHPjo",
-                "width": 2048
-            },
-            {
-                "height": 4224,
-                "html_attributions": [
-                    "<a href=\"https://maps.google.com/maps/contrib/118238018881758228989\">Dear Denden</a>"
-                ],
-                "photo_reference": "Aap_uEBq6KJ0Lpe716AjKpyXM5VFl17qSrP8YVcjnBpSPBBJ06cVQki_01qSLeEp2aq6XUZanmQHHnry6FkgM9dnGJyq3qHalfadh4kmfzIrrfnuSl0uGj80HIjcaQteaDFz0Iph0uPqvCRYhrda8H0Iai2Xvj34S7Lk1ptTeJGjtxiKqqgO",
-                "width": 3136
-            },
-            {
-                "height": 4032,
-                "html_attributions": [
-                    "<a href=\"https://maps.google.com/maps/contrib/100110806580546237625\">Kim Raymond</a>"
-                ],
-                "photo_reference": "Aap_uED7R9nWYKdc7RaYTyhXjOFVcxRoxYNLccvV_9IUIZUQVxTk9Ejtyfn2GQHXN2Ef6HOIueXBwsavFhlbGQnDOvyFdd54E58qRMVbZ8VoImYt5TZ25Swr5zlqbjmzpSXFY8Z3bhMlvDvbs7nQHRpCcsopqZ3CzCEgfRyZx-vWZb2UlANm",
-                "width": 2268
-            },
-            {
-                "height": 4032,
-                "html_attributions": [
-                    "<a href=\"https://maps.google.com/maps/contrib/114203209775184872203\">Marzie Ghorbani</a>"
-                ],
-                "photo_reference": "Aap_uEDiGRrEoU7vDtWV4m4Z04w-Hc7Y0RQvN0RK09gNJ29OciKZzjyHOhxNYgf_Ij9ZSFBoO4Vc9cN_hNMF9mt2CbP4PQdR4Q2_4ciV63uxjHBiHZeiqIbva_tzVsyJ6tHuvZ5thwC_pTTWjyCPHlXOootBOXeO3vHcdXnK60Sh83tDv7GH",
-                "width": 3024
-            },
-            {
-                "height": 4032,
-                "html_attributions": [
-                    "<a href=\"https://maps.google.com/maps/contrib/106038704994485804441\">Kota M</a>"
-                ],
-                "photo_reference": "Aap_uECBe_ihNQrD45gSLTeD-u-dIISPhgvEy9Flks75-P8kM5XURe1Z1iEc13bgHekkYIOEKD3C5T9tkw9KO7ZYO0WR9YhkI8zkqtlFdzu2O0I8yopdqvARjbAV0dtSxHHll5S_GdLPuO9POY5sXpNkhc0F9CRl5qf_oJZEGS8sQ77K6fCn",
-                "width": 3024
-            },
-            {
-                "height": 3080,
-                "html_attributions": [
-                    "<a href=\"https://maps.google.com/maps/contrib/114408106152639126503\">Jb Lee</a>"
-                ],
-                "photo_reference": "Aap_uEAhXqy523XlqNyl_GI6t--W4KpEnVy0ca5G9RbYHEScsGz-zJKIr7PtVCC0sEs60PCohVSYVMYb3t_RCiMy7eX6wGNmy8J7nuehq9MKmCp0TrHqk4S8Ds_wr-K15cCYvpa392MCh4DvG6NegXJvCmiXWekilyTIS9DDmuHLI17LpnnM",
-                "width": 5472
-            },
-            {
-                "height": 2304,
-                "html_attributions": [
-                    "<a href=\"https://maps.google.com/maps/contrib/100481177868248181761\">Viktor Berezin Chess</a>"
-                ],
-                "photo_reference": "Aap_uEAcQQxxNo5M6hI9EmQPYgbM858mU_Se0l39j_NrqUYSk51I8DdUgLgc2F5p2jZaNd0lMcXS2Xo26rpklYUYxsixLTTOsz6cq1bihan4WAvpG5r9ElAEezrnEO79_spQFn5HQMgvVi5MIUA5M0Kj_UXIOi5PPLnsTi2XPUlODWMMqYje",
-                "width": 1853
-            },
-            {
-                "height": 4032,
-                "html_attributions": [
-                    "<a href=\"https://maps.google.com/maps/contrib/106516613193611005372\">창밖의세상</a>"
-                ],
-                "photo_reference": "Aap_uEAo9xxgDbFXavx_1kWCB1oxMwQsusmxMzof9IFS2Gb4FoODw4c5ggN9zdgv0LhDoOYBSjRQ07pUMH8gM51LTx3xRc585rUTgel1swMzXXhg9nmjOBtynB6b3JzzeWOZXgiG8gFyRJcBNEVKuQXElSw6mfZHCxdZQDxKddjFS4CfD0Ui",
-                "width": 2268
-            },
             {
                 "height": 2268,
                 "html_attributions": [
-                    "<a href=\"https://maps.google.com/maps/contrib/115074125285521322395\">陳岳基</a>"
+                    "<a href=\"https://maps.google.com/maps/contrib/114352717260342321793\">Natgrapher</a>"
                 ],
-                "photo_reference": "Aap_uEDkjUMFxKEjj7l_oMhiDir0derPjOXU_a7JW-1DuMgv4Sc51ZB78G8MkU3De9y5OfeSBsZgzdcGHMeTcjM1_1WdNdc-GFjED04RLdWgkgOwzCkbIvKJejowiTz02cFYrLss3vP3tDWVfkPpxPOxWCoUdaUa8NCjnGz6mwRTfR6NrTcB",
+                "photo_reference": "Aap_uEDFqJuco8Q-89rc-klkbI0asMcB_AnjOqQd6-ZOrHFTiOu-Hyn3YPZBXpgZkkkCALMjqt9jF11iwt6K3irOY456BK03v9ytW_Q5tQytJY2Ila1QOZxDBwunmObtQylIxuzGebns4CLsLD6Gdu2VT6Xye2ps2wvEFs16d-h4g51dIObh",
+                "width": 4032
+            },
+            {
+                "height": 4000,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/109615772748517798399\">Alexander Samokhin</a>"
+                ],
+                "photo_reference": "Aap_uEB8Th09zaMwQr4Ud3o5QA3f70OyH12M8ilZnk_9v1FzbCrTfscA9ltib2EOrAL0M5BSXIkENt2zKi9Jai7fOoGAM7ARv2pa3UAgD27Tn3ZekmmcBKwckAtdG-psInTVxTAbTLngVUjjwSGCRjoE8mGPdS9u2LDWc2kQf9up-RHZCQWF",
+                "width": 6000
+            },
+            {
+                "height": 3120,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/109369036993454118976\">陳家驥 Lewis</a>"
+                ],
+                "photo_reference": "Aap_uEA1Zy0ecEsjrrk9FV-fn1AfT3o979-rqBR_A-b9CCo8RYYb_HEhvup3HGHBKsM7kvjZKLSUg4Q_dLLy5y9p9cxOqmwjgVq49ymXjfHf4QAkJU1jXV60TPtGkzbX1X3LKg2fZWszZ2DXb15fuI-63kQH9kErNZsw5-y8r427D6a6YWDf",
+                "width": 4160
+            },
+            {
+                "height": 3464,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/108710996671326648436\">Stefan Beermann</a>"
+                ],
+                "photo_reference": "Aap_uEDJeT5vE9y6ajBZF8OlBPeAv0yfXmCIhuXza_GVQjX-kd30U-oD404aly1UyM6y8PN5a_cApIEyMgBXwFxM9JVW5eeI_Z4TDbMoieN2SRP_S6LB98BoaERpnLriCZgmxfibyByX25nwGDTPKKgO7tEE_KclUdqViX4U5sDYLvr3ztFO",
+                "width": 4618
+            },
+            {
+                "height": 4032,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/101307710680479726915\">Terry Langley</a>"
+                ],
+                "photo_reference": "Aap_uEDn8GKzlPSA91o1lqOdMmisA26DUl5S58RcjAbDXIn3WHwxhi004aYowbx4TfKyKlZh20csnR2R1SF4gSaS3e8M2Ii6Bnj47m04NKneXNYhunZEsp4Og1JB7vXU5JsX2TEib9VN59kNx5yEFQfIarGHPqY14Yv7Hv4Lel33vDQAy6WK",
+                "width": 3024
+            },
+            {
+                "height": 4032,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/114878784118658742911\">hyera lee</a>"
+                ],
+                "photo_reference": "Aap_uEACXjmrevCpqmaWk6M4qCscD11UiNvqciQ8qvRrlcOT_FxSJ4tTOymmmbOrQR0PcqqRqwls2gTspEO2hQ99PCWY-rDAXeeNTMtomiDxSvDpsifBSeizX9aLSbc1GgIrcxWyakyzNc_qJod9JGvEqjIe9Oib-lKQ-nzrDu84SX23R_BA",
+                "width": 3024
+            },
+            {
+                "height": 2592,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/113721999004145765271\">jingu lee</a>"
+                ],
+                "photo_reference": "Aap_uEA0zCe5GdlHrDN2pu7mE9h2FNfdq2yHlxc7jq3hWo5NghchAmY_rB-ROUZDwHqwWItKvh5SueckvKqRjz4KhhjU-v8GbNT0ZVw_DkZ2P9DhoM3nnUdhq62VHvnYcmR78tUIWWTjvt31R8OOgEOHJ0WHLScpFIROZfuQXHEqw40SWRtd",
+                "width": 4608
+            },
+            {
+                "height": 3024,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/102965154667948945462\">Papri Bhowmick</a>"
+                ],
+                "photo_reference": "Aap_uEDaE7azqsVfPit-YF-O1sh0jhuY1EMFJ_5S2m7nij2T60IRcRv2Hb-LVTuZJRWPQcwHVw55Ivawcs-aIuTGoRJVet4aTmmgR_ArYRrIzPai75NiYNKEE5yEFezkQaQvm6umygCoo4S7thnC6dIJH8ORgXhxqW6LIGwRo7S7v7aPfIXf",
+                "width": 4032
+            },
+            {
+                "height": 4032,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/108278930229440406315\">Nish Kotel</a>"
+                ],
+                "photo_reference": "Aap_uECFuT9xEoKqvoitaHAsrxJlbZhbiEP5oNHjdBnkFNWkla2gev1_xIUru5kZMn9q_33dlY-H98vZe8YW_6UH1NqQyLs_0-JPw_0E330Z5NM0Xv7uFDro5zE0nbWplpQA9nLrpbudJNAYyfoSkC22pVUgqHgjuodmefit6aJJbQdLhUtY",
+                "width": 3024
+            },
+            {
+                "height": 3024,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/115899726011317537944\">Vinit Goel</a>"
+                ],
+                "photo_reference": "Aap_uED7ajHbYko1z7OsRHEtQX2IGJet_5PH1XbwS2sRSG3gNqkMXuAH_PQyepWTYrmQnskR8cV77gPYLZGUnnFmsWJ5FXP8jQEmKxOGWyNmvaAESh5Npd1xvJ7k-1xcPTa3IMGR2NDTQa6BemDkig_bN6pB-dv_IfslT3XH2Sk1EAgrk6oS",
                 "width": 4032
             }
         ],
-        "place_id": "ChIJIfH_5hSuEmsR3jZ2qQd0ev4",
+        "place_id": "ChIJYV-J-ziuEmsRIMyoFaMedU4",
         "plus_code": {
-            "compound_code": "46H7+G8 Sydney NSW, Australia",
-            "global_code": "4RRH46H7+G8"
+            "compound_code": "46J2+5V Sydney NSW, Australia",
+            "global_code": "4RRH46J2+5V"
         },
-        "rating": 4.7,
-        "reference": "ChIJIfH_5hSuEmsR3jZ2qQd0ev4",
+        "rating": 4.3,
+        "reference": "ChIJYV-J-ziuEmsRIMyoFaMedU4",
         "reviews": [
             {
-                "author_name": "Eric Zheng",
-                "author_url": "https://www.google.com/maps/contrib/109976857771834955820/reviews",
+                "author_name": "Ashish Tiwari",
+                "author_url": "https://www.google.com/maps/contrib/113575312625285442721/reviews",
                 "language": "en",
-                "profile_photo_url": "https://lh3.googleusercontent.com/a-/AOh14Gg3WzR7s6G6U0LXB04NaYxaq7fGYTNNmglEJIot=s128-c0x00000000-cc-rp-mo-ba4",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/AATXAJyNxE5bJOCUzUoP5Dtdhecj4yXLKBqrx6JJe7zV=s128-c0x00000000-cc-rp-mo-ba3",
                 "rating": 5,
-                "relative_time_description": "2 months ago",
-                "text": "A great place. You can go inside and check it out and nearby is the Australian Museum. At night, the cathedral lights up, revealing spectacular shades of colours. Nearby is the Hyde Park and you can get to St Mary's Cathedral by train, alighting at Museum or bus. Definitely come at night.",
-                "time": 1628482362
+                "relative_time_description": "2 weeks ago",
+                "text": "Awesome sea life experience. Photo booth, virtual reality experience and lots of other experiences. You literally will be a glass away from being close to a huge shark. Sting rays gliding right above your head. Lots of fascinating ocean life can be witnessed and all of it within a very decent price range. Perfect if you are looking for family adventure.Must visit place.",
+                "time": 1636967020
             },
             {
-                "author_name": "FairValue Australia",
-                "author_url": "https://www.google.com/maps/contrib/115655733909405317799/reviews",
+                "author_name": "Chris Murray",
+                "author_url": "https://www.google.com/maps/contrib/106248711322454334948/reviews",
                 "language": "en",
-                "profile_photo_url": "https://lh3.googleusercontent.com/a-/AOh14GhQxh_aOz0mtLhygMh1_tJ6g2eWnKYoTg97vb5JtjY=s128-c0x00000000-cc-rp-mo-ba6",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/AATXAJxCZJIbpYsnI7ajh7SKhA-MlBh2AaK2i99623k1=s128-c0x00000000-cc-rp-mo-ba2",
                 "rating": 5,
-                "relative_time_description": "11 months ago",
-                "text": "Incredible building well maintained. Great that people enjoy and are respectful.\nI have a brain injury but went to church here when my mum visited",
-                "time": 1605409136
+                "relative_time_description": "a month ago",
+                "text": "Had a great time here with our 1 year old son. Spent 3 hours viewing different sights. My favourite was the  penguin enclosure. We arrived here just on feeding time. My wife loved the turtles. My son loved the interactive splash mat. Great to see all types of marine life.",
+                "time": 1634281939
             },
             {
-                "author_name": "Judy Holman",
-                "author_url": "https://www.google.com/maps/contrib/117023710144355400189/reviews",
+                "author_name": "Gerard Schokman",
+                "author_url": "https://www.google.com/maps/contrib/100832554613145678176/reviews",
                 "language": "en",
-                "profile_photo_url": "https://lh3.googleusercontent.com/a/AATXAJwTlMK9EE2K18fByOGCV4H4PHNAp7EhhNOLHWE=s128-c0x00000000-cc-rp-mo-ba2",
-                "rating": 5,
-                "relative_time_description": "3 months ago",
-                "text": "The extended service felt very traditional in many ways. The coffee hour was very welcoming for serving such a large congregation. I was able to catch a tour right after coffee hour where I learned a lot about the church and art within it. The only things about the service I would have liked to see changed were the less traditional lords prayer, post communion prayer, and that they did not use the traditional 4 bell for the moments after \"do this in remembrance of me.\" It seemed like an extended traditional service with less traditional rites being used.",
-                "time": 1626951844
+                "profile_photo_url": "https://lh3.googleusercontent.com/a-/AOh14GjMkjS_G2F4AiHuBFH0NZ9fXGuvLftRJnDLx1-JhA=s128-c0x00000000-cc-rp-mo-ba3",
+                "rating": 4,
+                "relative_time_description": "a year ago",
+                "text": "The aquarium is unique. Quite educational for the family. A must visit for the kids if you are in Sydney.  The penguins were particularly interesting.  BTW if you are concerned about animal captivity, it may help you to know that they look well cared for. However,  if you think you are true animal lover, just pay the entry fee, as a donation and have a coffee outside.",
+                "time": 1594091640
             },
             {
-                "author_name": "Ravikiran Meesala",
-                "author_url": "https://www.google.com/maps/contrib/114170922028320702741/reviews",
+                "author_name": "CB Tran",
+                "author_url": "https://www.google.com/maps/contrib/115287587794250246117/reviews",
                 "language": "en",
-                "profile_photo_url": "https://lh3.googleusercontent.com/a-/AOh14GgWru_soRx-gIoXNW2arTo4vPXs6rdRhaovCawZSA=s128-c0x00000000-cc-rp-mo",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/AATXAJzLSVZOrOKW4oNiMCgrxAEfV1a_ZYt3lBcqQh1C=s128-c0x00000000-cc-rp-mo-ba3",
+                "rating": 5,
+                "relative_time_description": "a week ago",
+                "text": "Had a wonderful visit with a toddler. The best surprise was visiting the coffee shop at the end of the visit.\n\nThe catering staff make the best tasting coffees and delicious hot chocolate. They also offerred the most sincere, patient and efficient service for a first time visitor. Thank you for the great day visit.",
+                "time": 1637485063
+            },
+            {
+                "author_name": "Richa Verma",
+                "author_url": "https://www.google.com/maps/contrib/102455424929061571968/reviews",
+                "language": "en",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a-/AOh14GjdopyAphwvAY-KJvLFzbeZrgg67edFOQ9GjxNqUlw=s128-c0x00000000-cc-rp-mo-ba2",
                 "rating": 5,
                 "relative_time_description": "a year ago",
-                "text": "Amazing place... Peaceful",
-                "time": 1599009448
-            },
-            {
-                "author_name": "Trần Minh Trí",
-                "author_url": "https://www.google.com/maps/contrib/100408313077691910769/reviews",
-                "language": "en",
-                "profile_photo_url": "https://lh3.googleusercontent.com/a-/AOh14GjVpheqLO6bNS_w0WElZgmBVoNJHJQotYWx3Q7Aylg=s128-c0x00000000-cc-rp-mo",
-                "rating": 5,
-                "relative_time_description": "a year ago",
-                "text": "The Cathedral Church and Minor Basilica of the Immaculate Mother of God, Help of Christians (colloquially, St Mary's Cathedral) is the cathedral church of the Roman Catholic Archdiocese of Sydney and the seat of the Archbishop of Sydney, currently Anthony Fisher OP. It should not be confused with the nearby, later, Anglican St Andrew's Cathedral. It is dedicated to the \"Immaculate Mother of God, Help of Christians\", Patroness of Australia and holds the title and dignity of a minor basilica, bestowed upon it by Pope Pius XI on 4 August 1932.\n\nSt Mary's has the greatest length of any church in Australia (although it is neither the tallest nor largest overall). It is located on College Street near the eastern border of the Sydney central business district in the City of Sydney local government area of New South Wales, Australia. Despite the high-rise development of the central business district, the cathedral's imposing structure and twin spires make it a landmark from every direction. In 2008, St Mary's Cathedral became the focus of World Youth Day 2008 and was visited by Pope Benedict XVI who consecrated the new forward altar. The cathedral was designed by William Wardell and built from 1866 to 1928. It is also known as St Mary's Catholic Cathedral and Chapter House, Saint Mary's Cathedral and St Mary's Cathedral. The property was added to the New South Wales State Heritage Register on 3 September 2004.",
-                "time": 1600925479
+                "text": "Must go place. My little one elated. He was amazed to see the stingrays. Grandparents enjoyed the day out too.\n\nIf you have kids do not miss out on this one. The hygiene is well taken care of during corona times.",
+                "time": 1606895059
             }
         ],
         "types": [
+            "aquarium",
             "tourist_attraction",
-            "church",
-            "place_of_worship",
             "point_of_interest",
             "establishment"
         ],
-        "url": "https://maps.google.com/?cid=18337096409049085662",
-        "user_ratings_total": 4556,
+        "url": "https://maps.google.com/?cid=5653458593025412128",
+        "user_ratings_total": 13378,
         "utc_offset": 660,
-        "vicinity": "St Marys Rd, Sydney",
-        "website": "http://www.stmaryscathedral.org.au/"
+        "vicinity": "1-5 Wheat Road, Sydney",
+        "website": "https://www.visitsealife.com/sydney/?utm_source=gmb&utm_medium=organic&utm_campaign=yext&utm_content=2"
     },
     "status": "OK"
 }

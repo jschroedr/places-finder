@@ -70,6 +70,7 @@
 			"sysvshm",
 			"tidy",
 			"tokenizer",
+			"xdebug",
 			"xml",
 			"xmlreader",
 			"xmlrpc",
