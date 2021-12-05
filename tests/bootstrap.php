@@ -42,6 +42,7 @@ function getAndSetTestPosts() : array
     $user = $users[0];
     $posts = getTestPosts();
     $postObjects = [];
+    $category = get_categories()[0];
     foreach ($posts as $post) {
         $id = $post['id'];
         $wpPost = get_post($id);
@@ -50,8 +51,9 @@ function getAndSetTestPosts() : array
                 [
                     'import_id' => $id,
                     'post_title' => $post['post_title'],
-                    'post_status' => $post['post_status'],
+                    'post_status' => 'publish',
                     'post_author' => $user->ID,
+                    'post_category' => $category->term_id,
                 ],
                 true,
             );
@@ -60,8 +62,9 @@ function getAndSetTestPosts() : array
                 [
                     'ID' => $wpPost->ID,
                     'post_title' => $post['post_title'],
-                    'post_status' => $post['post_status'],
+                    'post_status' => 'publish',
                     'post_author' => $user->ID,
+                    'post_category' => $category->term_id,
                 ],
                 true,
             );

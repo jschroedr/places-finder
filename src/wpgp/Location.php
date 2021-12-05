@@ -106,9 +106,6 @@ namespace wpgp
         private function parse(array $data) : void
         {
 
-            // extract the data from the api result
-            $data = $data['result'] ?? [];
-
             // if data is still empty, do nothing
             if (empty($data) === true) {
                 error_log('wpgp\\Location: Could not get GooglePlaceDetail.');

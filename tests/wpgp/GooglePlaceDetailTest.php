@@ -52,7 +52,6 @@ namespace wpgp
             $apiKey = uniqid();
             MainMenu::setOptionValue(MainMenu::SERVER_API_KEY_FIELD_NAME, $apiKey);
             $response = GooglePlaceDetail::get($placeId);
-            $response = $response['result'];
             $this->_checkResultContent($response);
             $placeId = $response['place_id'] ?? '';
             $this->assertNotEmpty($placeId);

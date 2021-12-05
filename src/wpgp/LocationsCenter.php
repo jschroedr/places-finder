@@ -26,15 +26,17 @@ namespace wpgp
             foreach($locations as $location) 
             {
                 $point = $location->point;
-                $lat = self::normalizePoint($point->lat, $pi);
-                $lng = self::normalizePoint($point->lng, $pi);
-
-                // increment cartesian coordinates
-                $x += self::getA($lat, $lng);
-                $y += self::getB($lat, $lng);
-                $z += self::getC($lat);
-            
-                $count ++;
+                if (is_null($point) === false) {
+                    $lat = self::normalizePoint($point->lat, $pi);
+                    $lng = self::normalizePoint($point->lng, $pi);
+    
+                    // increment cartesian coordinates
+                    $x += self::getA($lat, $lng);
+                    $y += self::getB($lat, $lng);
+                    $z += self::getC($lat);
+                
+                    $count ++;    
+                }
             }
 
             // divide by number of points processed

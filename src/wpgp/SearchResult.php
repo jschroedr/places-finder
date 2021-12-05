@@ -12,17 +12,11 @@ namespace wpgp
         public Point $center;
         public array $locations;
 
-        const ALL = 'ALL';
-        const REGION = 'REGION';
-        const COUNTRY = 'COUNTRY';
-        const PREMISE = 'PREMISE';
-        const LOCALITY = 'LOCALITY';
+        const ADMIN_AREA_1 = 'adminArea1';
+        const PROXIMITY = 'proximity';
         const TYPES = [
-            self::ALL,
-            self::REGION,
-            self::COUNTRY,
-            self::PREMISE,
-            self::LOCALITY
+            self::ADMIN_AREA_1,
+            self::PROXIMITY
         ];
 
         public function __construct(bool $success, string $type, Point $center, array $locations)
@@ -30,7 +24,7 @@ namespace wpgp
             $this->success = $success;
             $this->type = $type;
             if (in_array($type, self::TYPES, true) === false) {
-                $types = self::TYPES;
+                $types = implode(', ', self::TYPES);
                 error_log(
                     "wpgp\\SearchResult: $type is not valid. Must be one of $types"
                 );

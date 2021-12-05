@@ -1,0 +1,88 @@
+{
+    "results": [
+        {
+            "address_components": [
+                {
+                    "long_name": "3",
+                    "short_name": "3",
+                    "types": [
+                        "street_number"
+                    ]
+                },
+                {
+                    "long_name": "Cumberland Street",
+                    "short_name": "Cumberland St",
+                    "types": [
+                        "route"
+                    ]
+                },
+                {
+                    "long_name": "The Rocks",
+                    "short_name": "The Rocks",
+                    "types": [
+                        "locality",
+                        "political"
+                    ]
+                },
+                {
+                    "long_name": "City of Sydney",
+                    "short_name": "City of Sydney",
+                    "types": [
+                        "administrative_area_level_2",
+                        "political"
+                    ]
+                },
+                {
+                    "long_name": "New South Wales",
+                    "short_name": "NSW",
+                    "types": [
+                        "administrative_area_level_1",
+                        "political"
+                    ]
+                },
+                {
+                    "long_name": "Australia",
+                    "short_name": "AU",
+                    "types": [
+                        "country",
+                        "political"
+                    ]
+                },
+                {
+                    "long_name": "2000",
+                    "short_name": "2000",
+                    "types": [
+                        "postal_code"
+                    ]
+                }
+            ],
+            "formatted_address": "3 Cumberland St, The Rocks NSW 2000, Australia",
+            "geometry": {
+                "location": {
+                    "lat": -33.8574531,
+                    "lng": 151.2077107
+                },
+                "location_type": "ROOFTOP",
+                "viewport": {
+                    "northeast": {
+                        "lat": -33.8561041197085,
+                        "lng": 151.2090596802915
+                    },
+                    "southwest": {
+                        "lat": -33.8588020802915,
+                        "lng": 151.2063617197085
+                    }
+                }
+            },
+            "place_id": "ChIJLaPzJl2uEmsRHH6eMSPY_1U",
+            "plus_code": {
+                "compound_code": "46V5+23 The Rocks NSW, Australia",
+                "global_code": "4RRH46V5+23"
+            },
+            "types": [
+                "street_address"
+            ]
+        }
+    ],
+    "status": "OK"
+}

@@ -74,14 +74,10 @@ namespace wpgp
             */
             $aKM = $a->distance->getKilometers();
             $bKM = $b->distance->getKilometers();
-            $difference = $aKM - $bKM;
-            $difference = round($difference, 0); // round the difference
-            if ($difference > 0) {
-                return 1;
-            } elseif ($difference === 0) {
+            if ($aKM === $bKM) {
                 return 0;
             } else {
-                return -1;
+                return ($aKM < $bKM) ? -1 : 1;
             }
         }
 

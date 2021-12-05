@@ -12,6 +12,7 @@ namespace wpgp
 
         private static function _getByAddressMock(string $address) : array
         {
+            $address = hash('sha256', $address);
             $filename = "geocode-$address.json";
             $response = MockHelper::getResponseContent($filename);
             return json_decode($response, true);
@@ -23,7 +24,6 @@ namespace wpgp
             $key = self::getApiKey();
             $url = self::URL . '?' . "address=$address&$key";
 
-            // TODO: MOCKING SUPPORT
             if (Configuration::isTest() === false) {
                 $response = self::getProduction($url);
             } else {
@@ -35,7 +35,7 @@ namespace wpgp
             }
 
             // extract the result, but DO NOT use the cache
-            return $response['result'];
+            return $response['results'];
         }
 
         private static function _getByLatLngMock(string $latlng) : array

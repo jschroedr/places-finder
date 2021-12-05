@@ -118,11 +118,13 @@ namespace wpgp
          */
         private static function _getLocations() : array
         {
+            $postType = MainMenu::getOptionValue(
+                MainMenu::POST_TYPE_FIELD_NAME
+            );
+            $postType = empty($postType) === true ? 'post' : $postType;
             $posts = get_posts(
                 [
-                    'post_type' => MainMenu::getOptionValue(
-                        MainMenu::POST_TYPE_FIELD_NAME
-                    ),
+                    'post_type' => $postType,
                     'post_status' => 'publish',
                     'numberposts' => -1,
                     'order' => 'ASC'
@@ -154,14 +156,12 @@ namespace wpgp
             $primaryType = self::_getPrimaryType($response['types']);
             switch ($primaryType) {
             case 'administrative_area_level_1':
-                $locations = self::_regionFilter($response, $locations);
+                return self::_regionFilter($response, $locations);
                 break;
             default:
-                $locations = self::_proximitySort($response, $locations);
+                return self::_proximitySort($response, $locations);
                 break;
             }
-            $center = LocationsCenter::find($locations);
-            return new SearchResult(true, $primaryType, $center, $locations);
         }
 
         private static function _proximitySort(
