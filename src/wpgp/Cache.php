@@ -44,6 +44,11 @@ namespace wpgp
             $filename = self::_getFilePath($key, $partition);
             if (is_file($filename) === false) {
                 // file does not exist
+                return '';  
+            } elseif (filemtime($filename) < strtotime('-30 days')) {
+                // google only allows caching of data for up to 30 days
+                // if the file is too old then remove it and return empty
+                unlink($filename);
                 return '';
             } else {
                 // file exists and ready for use

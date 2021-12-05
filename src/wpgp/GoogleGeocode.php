@@ -64,7 +64,7 @@ namespace wpgp
             }
 
             // extract the result, but DO NOT use the cache
-            return self::setAndReturn($response);
+            return $response['result'];
         }
     }
 }
