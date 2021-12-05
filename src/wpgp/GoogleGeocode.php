@@ -35,7 +35,7 @@ namespace wpgp
             }
 
             // extract the result, but DO NOT use the cache
-            return self::setAndReturn($response);
+            return $response['result'];
         }
 
         private static function _getByLatLngMock(string $latlng) : array
@@ -64,7 +64,7 @@ namespace wpgp
             }
 
             // extract the result, but DO NOT use the cache
-            return $response['result'];
+            return $response['results'];
         }
     }
 }

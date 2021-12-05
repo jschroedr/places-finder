@@ -81,7 +81,7 @@ namespace wpgp
             ];
             self::setCache($data, $placeId, self::CACHE_KEY);
             
-            return $response;
+            return $response['result'];
         }
 
     }

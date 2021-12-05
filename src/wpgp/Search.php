@@ -20,25 +20,26 @@ namespace wpgp
                 self::_standardResponse(true);
             }
 
-            // otherwise, parse the search type
-            if (self::_isLatLngQuery($query)) {
-                // if lat/lng, do a lat/lng geocode search
-                $pieces = explode(',', $string);
-                $lat = (float)$lat;
-                $lng = (float)$lng;
+            // if valid coords are detected, do a lat/lng geocode search
+            $coords = self::_isLatLngQuery($query);
+            if (empty($coords) === false) {
+                $lat = (float)$coords[0];
+                $lng = (float)$coords[1];
                 $point = new Point($lat, $lng);
                 $response = GoogleGeocode::getByLatLng($point);
             } else {
-                // pre-search-result filter
-                apply_filters('wpgp_pre_search_result', $)
+                // perform an address-based search
 
-                // massage US state abbrivations to names, with country
+                // pre-search-result filter
+                // apply_filters('wpgp_pre_search_result', )
+
+                // massage US state abbreviations to names, with country
                 if (isset(USAState::LOOKUP[$query]) === true) {
                     $query = USAState::LOOKUP[$query];
                 }
 
                 // geocode text as address
-                $response = GoogleGeocode::getByAddress($address);
+                $response = GoogleGeocode::getByAddress($query);
             }
 
             // if the search result is invalid, return standard with fail
@@ -49,7 +50,43 @@ namespace wpgp
                 return self::_standardResponse(false);
             }
 
+            // always take the first (closest) response from the geocode api
+            $response = $response[0];
+
             return self::_parseLocationsByResponse($response);
+        }
+
+        /**
+         * Parses a user's query to see if valid coordinates have been provided
+         * 
+         * Returns a valid set of [lat, lng] coordinates upon success, or empty
+         * array on failure.
+         * 
+         * @param string $query the user's search query
+         * 
+         * @return array
+         */
+        private static function _isLatLngQuery(string $query) : array
+        {
+            $limit = 2;
+            $coords = explode(',', $query, $limit);
+            if (count($coords) !== $limit) {
+                return [];
+            } else {
+                foreach ($coords as &$coord) {
+                    // remove any whitespace before anything else
+                    $coord = trim($coord);
+                    if (is_numeric($coord) === false) {
+                        return [];
+                    }
+                    $coord = (float)$coord;
+                    // coordinates must be between -180 and 180
+                    if ((-180 < $coord && $coord < 180) === false) {
+                        return [];    
+                    }
+                }
+                return $coords;
+            }
         }
 
         /**
@@ -66,7 +103,7 @@ namespace wpgp
             $locations = self::_getLocations();
             $center = LocationsCenter::find($locations);
             return new SearchResult(
-                $fail,
+                $success,
                 SearchResult::ALL,
                 $center,
                 $locations
@@ -92,68 +129,64 @@ namespace wpgp
                 ]
             );
             $locations = [];
+            // we don't have time in Search to pay for the API
+            // time cost for each location
+            // use the cache only
+            $cacheOnly = true;
             foreach ($posts as $post) {
-                $locations[] = new Location($post['ID']);
+                $locations[] = new Location($post->ID, $cacheOnly);
             }
             return $locations;
         }
 
         private static function _getPrimaryType(array $type) : string
         {
-            return $types[0];
+            return $type[0];
         }
 
         private static function _parseLocationsByResponse(array $response) : SearchResult
         {
             $locations = self::_getLocations();
+            // if there are no locations, just return the standard successful response
+            if (empty($locations) === true) {
+                return self::_standardResponse(true);
+            }
             $primaryType = self::_getPrimaryType($response['types']);
             switch ($primaryType) {
-            case 'locality':
-            case 'premise':
-                $locations = self::_proximitySort($response, $locations);
             case 'administrative_area_level_1':
                 $locations = self::_regionFilter($response, $locations);
-            case 'country':
-                $locations = self::_countryFilter($response, $locations);
+                break;
             default:
-                error_log(
-                    "wpgp\\Search: parsing ($primaryType) failed 
-                    using default parsing."
-                );
-                return self::_standardResponse(false);
+                $locations = self::_proximitySort($response, $locations);
+                break;
             }
+            $center = LocationsCenter::find($locations);
+            return new SearchResult(true, $primaryType, $center, $locations);
         }
 
-        private function _proximitySort(array $response, array $locations) : SearchResult
-        {
+        private static function _proximitySort(
+            array $response, 
+            array $locations
+        ) : SearchResult {
             $point = new Point(
                 $response['geometry']['location']['lat'],
                 $response['geometry']['location']['lng']
             );
             $set = new HaversineSet($point);
             $set->order($locations);
-            // TODO: allow limiting of these types of results
             $center = LocationsCenter::find($locations);
-            return new SearchResult(true, 'proximity', $response, $locations);
+            return new SearchResult(true, 'proximity', $center, $locations);
         }
 
-        private function _regionFilter(
-            array $response,
+        private static function _regionFilter(
+            array $response, 
             array $locations
         ) : SearchResult {
             $type = 'administrative_area_level_1';
             return self::_filterByType($type, 'adminArea1', $response, $locations);
         }
 
-        private function _countryFilter(
-            array $response,
-            array $locations
-        ) : SearchResult {
-            $type = 'country';
-            return self::_filterByType($type, 'country', $response, $locations);
-        }
-
-        private function _filterByType(
+        private static function _filterByType(
             string $type,
             string $locationAttribute,
             array $response,
@@ -173,7 +206,7 @@ namespace wpgp
             return new SearchResult(true, $type, $center, $locations);
         }
     
-        private function _getAddressComponent(
+        private static function _getAddressComponent(
             string $type,
             array $components
         ) : string {

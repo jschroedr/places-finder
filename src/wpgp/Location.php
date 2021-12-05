@@ -70,10 +70,15 @@ namespace wpgp
                 $this->point = new Point($this->lat, $this->lng);
             }
 
-            // if a place id title is not available, use the post title
+            // if a place details name is not available, use the post title
             if (empty($this->name)) {
                 $this->name = get_the_title($this->postId);
             }
+            // use the post region field as the region
+            $this->adminArea1 = MetaBox::getMetaItem(
+                $this->postId,
+                MetaBox::REGION_KEY
+            );
         }
 
         private function initialize() : void
@@ -138,7 +143,11 @@ namespace wpgp
                     $this->adminArea2 = $value;
                     break;
                 case 'administrative_area_level_1':
-                    $this->adminArea1 = $value;
+                    // we need this attribute cached for search
+                    // so we are getting it from the user
+                    // in order to comply with google's service agreement
+                    //
+                    // $this->adminArea1 = $value;
                     break;
                 case 'country':
                     $this->country = $value;

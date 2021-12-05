@@ -70,6 +70,8 @@ namespace wpgp
 
         const PLACE_ID_KEY = 'wpgp-google-place-id';
 
+        const REGION_KEY = 'wpgp-region';
+
         const NONCE_KEY = 'wpgp-location-nonce';
         
         public static function getMetaItem(int $postId, string $key) : string
@@ -95,14 +97,29 @@ namespace wpgp
         public static function render(WP_Post $object) : void
         {
             wp_nonce_field(basename(__FILE__), self::NONCE_KEY);
-            $value = get_post_meta($object->ID, self::PLACE_ID_KEY, true);
+            $placeId = get_post_meta($object->ID, self::PLACE_ID_KEY, true);
+            $region = get_post_meta($object->ID, self::REGION_KEY, true);
             ?>
             <div>
-                <label for="<?php echo self::PLACE_ID_KEY;?>">Google Place ID</label>
+                <label 
+                    for="<?php echo self::PLACE_ID_KEY;?>"
+                >
+                Google Place ID
+                </label>
                 <input
                     type="text"
                     name="<?php echo self::PLACE_ID_KEY;?>"
-                    value="<?php echo $value;?>"
+                    value="<?php echo $placeId;?>"
+                >
+                <label 
+                    for="<?php echo self::REGION_KEY;?>"
+                >
+                    State/Province/Region
+                </label>
+                <input
+                    type="text"
+                    name="<?php echo self::REGION_KEY;?>"
+                    value=<?php echo $region;?>
                 >
             </div>
             <?php
@@ -130,9 +147,10 @@ namespace wpgp
                     return;
                 }    
             }
-            $value = $_POST[self::PLACE_ID_KEY] ?? '';
-            update_post_meta($postId, self::PLACE_ID_KEY, $value);
+            $placeId = $_POST[self::PLACE_ID_KEY] ?? '';
+            update_post_meta($postId, self::PLACE_ID_KEY, $placeId);
+            $region = $_POST[self::REGION_KEY] ?? '';
+            update_post_meta($postId, self::REGION_KEY, $region);
         }
-
     }
 }
