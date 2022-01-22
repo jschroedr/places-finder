@@ -5,12 +5,12 @@
  * PHP version 7.4
  * 
  * @wordpress-plugin
- * Plugin Name: WP Self Storage
- * Plugin URI: https://github.com/jschroedr/wp-self-storage
- * Description: Integrates Wordpress with Self-Storage IMS
+ * Plugin Name: Places Finder
+ * Plugin URI: https://github.com/jschroedr/places-finder
+ * Description: Enrich custom location post types with places information.
  * Author: Jake Schroeder
  * Author URI: https://github.com/jschroedr/
- * Version 1.0.0
+ * Version 0.0.1
  * 
  * @category Admin
  * @package  Wpgp
@@ -38,7 +38,7 @@ spl_autoload_register(
 
 use wpgp\MainMenu;
 use wpgp\MetaBox;
-
+use wpgp\BlockManager;
 
 /**
  * Initialize the plugin
@@ -47,7 +47,11 @@ use wpgp\MetaBox;
  */
 function Wpgp_run() : void 
 {
+    // initialize menus
     MainMenu::init();
     MetaBox::init();
+
+    $blockManager = new BlockManager('places-finder', __DIR__);
+    $blockManager->init();
 }
 Wpgp_run();

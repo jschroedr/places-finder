@@ -20,3 +20,6 @@ RUN echo "xdebug.mode=debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.
 RUN docker-php-ext-install pdo_mysql
 RUN sed -i "s/;extension=pdo_mysql/extension=pdo_mysql/" /usr/local/etc/php/php.ini-production
 RUN sed -i "s/;extension=pdo_mysql/extension=pdo_mysql/" /usr/local/etc/php/php.ini-development
+
+# install nodejs
+RUN apt-get update && apt-get install nodejs npm -y
