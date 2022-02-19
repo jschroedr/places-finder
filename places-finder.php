@@ -39,6 +39,26 @@ spl_autoload_register(
 use wpgp\MainMenu;
 use wpgp\MetaBox;
 use wpgp\BlockManager;
+use wpgp\Location;
+use wpgp\BlockRating;
+
+
+function Wpgp_render_rating( array $block_attributes, string $content) : string
+{
+    // get the review data from the api
+    $location = new Location(get_the_ID());  // current post id and no cache
+
+    if ($location->reviewCount === 0) {
+        if ($block_attributes['no_reviews_five_stars']) {
+            return BlockRating::ratingToStars(5, 'color:yellow;');
+        } else {
+            return BlockRating::ratingToStars(0, 'color:yellow;');
+        }
+    }
+    $stars = BlockRating::ratingToStars($location->rating, 'color:yellow');
+    return "$stars ($location->reviewCount)";
+}
+
 
 /**
  * Initialize the plugin
@@ -51,7 +71,28 @@ function Wpgp_run() : void
     MainMenu::init();
     MetaBox::init();
 
-    $blockManager = new BlockManager('places-finder', __DIR__);
-    $blockManager->init();
+    //$blockManager = new BlockManager('places-finder', __DIR__);
+    //$blockManager->init();
+
+    /**
+    * Registers the block using the metadata loaded from the `block.json` file.
+    * Behind the scenes, it registers also all assets so they can be enqueued
+    * through the block editor in the corresponding context.
+    *
+    * @see https://developer.wordpress.org/reference/functions/register_block_type/
+    */
+    $blocksPath = __DIR__ . DIRECTORY_SEPARATOR . 'blocks';
+    $editorScript = $blocksPath . DIRECTORY_SEPARATOR . 'rating' . DIRECTORY_SEPARATOR . 'src';
+    $result = register_block_type(
+        $editorScript,
+        [
+            'api_version' => 2,
+            'render_callback' => 'Wpgp_render_rating',
+        ]
+    );
+    if ($result === false) {
+        throw new Exception('Block init failed');
+    }
 }
-Wpgp_run();
+
+add_action('init', 'Wpgp_run');

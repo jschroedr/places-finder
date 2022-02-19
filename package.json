@@ -1,28 +1,24 @@
 {
-	"name": "05-recipe-card-esnext",
-	"version": "1.1.0",
-	"private": true,
-	"description": "Example: Recipe Card (ESNext).",
+	"name": "wpgp",
+	"version": "0.1.0",
+	"description": "Example block written with ESNext standard and JSX support – build step required.",
 	"author": "The WordPress Contributors",
 	"license": "GPL-2.0-or-later",
-	"keywords": [
-		"WordPress",
-		"block"
-	],
-	"homepage": "https://github.com/WordPress/gutenberg-examples/",
-	"repository": "git+https://github.com/WordPress/gutenberg-examples.git",
-	"bugs": {
-		"url": "https://github.com/WordPress/gutenberg-examples/issues"
-	},
-	"main": "blocks/searchresult/build/index.js",
-	"devDependencies": {
-		"@wordpress/scripts": "^18.1.0"
-	},
+	"main": "build/index.js",
 	"scripts": {
+		"start:test": "wp-scripts start blocks/test/src/index.js --output-path=blocks/test/build/",
+		"build:test": "wp-scripts build blocks/test/src/index.js --output-path=blocks/test/build/",
+		"start:rating": "wp-scripts start blocks/rating/src/index.js --output-path=blocks/rating/build/",
+		"build:rating": "wp-scripts build blocks/rating/src/index.js --output-path=blocks/rating/build/",
 		"build": "wp-scripts build",
-		"format:js": "wp-scripts format-js",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
 		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
 		"start": "wp-scripts start"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^21.0.2"
 	}
 }

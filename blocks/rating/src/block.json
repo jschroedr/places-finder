@@ -1,0 +1,23 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wpgp/rating",
+	"version": "0.1.0",
+	"title": "Google Places Rating",
+	"category": "widgets",
+	"icon": "star-half",
+	"description": "Display",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"no_reviews_five_stars": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"textdomain": "test",
+	"editorScript": "file:../build/index.js",
+	"editorStyle": "file:../build/index.css",
+	"style": "file:../build/style-index.css"
+}

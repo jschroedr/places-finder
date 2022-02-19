@@ -1,13 +1,32 @@
 <?php
+/**
+ * BlockManager class module.
+ * 
+ * PHP version 7.4
+ * 
+ * @category Admin
+ * @package  Wpgp
+ * @author   Jake Schroeder <jake_schroeder@outlook.com>
+ * @license  GNU v3
+ * @link     https://github.com/jschroedr/wp-google-places
+ * 
+ * see: https://developer.wordpress.org/plugins/settings/custom-settings-page/
+ */
 
 namespace wpgp {
 
-    use \add_action;
-    use \basename;
-    use \load_plugin_textdomain;
-    use \register_block_type;
 
-    class BlockManager {
+    /**
+     * Manages Gutenberg Block Initialization.
+     * 
+     * @category Admin
+     * @package  Wpgp
+     * @author   Jake Schroeder <jake_schroeder@outlook.com>
+     * @license  GNU v3
+     * @link     https://github.com/jschroedr/places-finder
+     */
+    class BlockManager
+    {
 
         private string $_name;
         private string $_path;

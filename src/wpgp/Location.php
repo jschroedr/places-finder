@@ -21,8 +21,8 @@ namespace wpgp
         public string $country = '';
         public string $postalCode = '';
         
-        const INVALID_RATING = -1.0;
-        const INVALID_REVIEW_COUNT = -1;
+        const INVALID_RATING = 0;
+        const INVALID_REVIEW_COUNT = 0;
         public float $rating;
         public array $reviews = [];
         public int $reviewCount;
@@ -44,8 +44,16 @@ namespace wpgp
         
         const INVALID_COORD = -181.0;
 
-        public function __construct(int $postId = null, bool $cacheOnly = false)
+        public function __construct(int $postId, bool $cacheOnly = false)
         {
+            // TODO (jschroeder): check the wp cache for a previous response
+            // within the same request/response cycle
+
+            // no place id == no reviews
+            // cache details requests up to some pre-defined interval (in seconds)
+
+            // lat / lng can be user-edited (only write from api when empty and place id is present)
+            // user-entered lat / lng can be reverse geocoded for address details 
             $this->cacheOnly = $cacheOnly;
             $this->rating = $this::INVALID_RATING;
             $this->reviewCount = $this::INVALID_REVIEW_COUNT;
@@ -53,9 +61,6 @@ namespace wpgp
             $this->lng = self::INVALID_COORD;
             $this->distance = null;
 
-            if (is_null($postId) === true) {
-                $this->postId = get_the_ID();
-            }
             $this->postId = $postId;
             $this->_placeId = MetaBox::getMetaItem(
                 $this->postId, 
